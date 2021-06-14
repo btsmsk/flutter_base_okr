@@ -1,22 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-@Singleton()
-class DioClient {
+import 'dio_client.dart';
+
+@Singleton(as: DioClient)
+class AppDioClient implements DioClient {
   // dio instance
   final Dio _dio;
 
-  // injecting dio instance
-  DioClient(this._dio);
+  AppDioClient(this._dio);
 
-  // Get:-----------------------------------------------------------------------
-  Future<dynamic> get(
-    String uri, {
-    Map<String, dynamic>? queryParameters,
-    Options? options,
-    CancelToken? cancelToken,
-    ProgressCallback? onReceiveProgress,
-  }) async {
+  @override
+  Future get(String uri,
+      {Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onReceiveProgress}) async {
     try {
       final Response response = await _dio.get(
         uri,
@@ -32,7 +31,7 @@ class DioClient {
     }
   }
 
-  // Post:----------------------------------------------------------------------
+  @override
   Future<dynamic> post(
     String uri, {
     data,
@@ -58,7 +57,7 @@ class DioClient {
     }
   }
 
-  // Put:-----------------------------------------------------------------------
+  @override
   Future<dynamic> put(
     String uri, {
     data,
@@ -84,7 +83,7 @@ class DioClient {
     }
   }
 
-  // Delete:--------------------------------------------------------------------
+  @override
   Future<dynamic> delete(
     String uri, {
     data,

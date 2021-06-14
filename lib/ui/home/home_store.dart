@@ -1,23 +1,23 @@
-import 'package:flutter_base_okr/data/repository.dart';
-import 'package:flutter_base_okr/models/rocket_list.dart';
+import 'package:flutter_base_okr/data/response/rocket_list.dart';
+import 'package:flutter_base_okr/domain/usecase/get_rockets.dart';
 import 'package:flutter_base_okr/stores/errors/error_store.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
-part 'rockets_store.g.dart';
+part 'home_store.g.dart';
 
 @Injectable()
-class RocketStore = _RocketStore with _$RocketStore;
+class HomeStore = _HomeStore with _$HomeStore;
 
-abstract class _RocketStore with Store {
-  // repository instance
-  late Repository _repository;
+abstract class _HomeStore with Store {
+  // use case
+  final GetRocketsUseCase _getRocketsUseCase;
 
   // store for handling errors
   final ErrorStore errorStore = ErrorStore();
 
   // constructor:---------------------------------------------------------------
-  _RocketStore(Repository repository) : this._repository = repository;
+  _HomeStore(this._getRocketsUseCase);
 
   // store variables:-----------------------------------------------------------
   static ObservableFuture<RocketList?> emptyPostResponse =
@@ -39,7 +39,7 @@ abstract class _RocketStore with Store {
   // actions:-------------------------------------------------------------------
   @action
   Future getRockets() async {
-    final future = _repository.getRockets();
+    final future = _getRocketsUseCase.run();
     fetchRocketsFuture = ObservableFuture(future);
 
     future.then((rocketList) {

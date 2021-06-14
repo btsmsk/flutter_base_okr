@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_base_okr/data/remote/constants/endpoints.dart';
+import 'package:flutter_base_okr/data/core/endpoints.dart';
 import 'package:injectable/injectable.dart';
 
 @module

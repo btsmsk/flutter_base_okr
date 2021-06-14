@@ -1,5 +1,5 @@
 
-import 'package:flutter_base_okr/models/rocket.dart';
+import 'package:flutter_base_okr/data/response/rocket.dart';
 
 class RocketList {
   final List<Rocket>? rockets;

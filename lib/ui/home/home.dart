@@ -1,39 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/stores/rockets/rockets_store.dart';
+import 'package:flutter_base_okr/data/core/base_widget_state.dart';
+import 'package:flutter_base_okr/ui/home/home_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  //stores:---------------------------------------------------------------------
-  late RocketStore _rocketStore;
+class _HomeScreenState extends BaseWidgetState<HomeScreen, HomeStore> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
   void initState() {
+    storeController.getRockets();
     super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    // initializing stores
-    _rocketStore = Provider.of<RocketStore>(context);
-
-    // check to see if already called api
-    if (!_rocketStore.loading) {
-      _rocketStore.getRockets();
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: _buildBody(),
     );
   }
@@ -50,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildMainContent() {
     return Observer(
       builder: (context) {
-        return _rocketStore.loading
+        return storeController.loading
             ? CircularProgressIndicator()
             : Material(child: _buildListView());
       },
@@ -58,9 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildListView() {
-    return _rocketStore.rocketList != null
+    return storeController.rocketList != null
         ? ListView.separated(
-            itemCount: _rocketStore.rocketList!.rockets!.length,
+            itemCount: storeController.rocketList!.rockets!.length,
             separatorBuilder: (context, position) {
               return Divider();
             },
@@ -79,18 +67,24 @@ class _HomeScreenState extends State<HomeScreen> {
     return ListTile(
       dense: true,
       title: Text(
-        '${_rocketStore.rocketList?.rockets?[position].rocketName}',
+        '${storeController.rocketList?.rockets?[position].rocketName}',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         softWrap: false,
         style: Theme.of(context).textTheme.title,
       ),
       subtitle: Text(
-        '${_rocketStore.rocketList?.rockets?[position].description}',
+        '${storeController.rocketList?.rockets?[position].description}',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         softWrap: false,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    storeController.errorStore.dispose();
+    super.dispose();
   }
 }
