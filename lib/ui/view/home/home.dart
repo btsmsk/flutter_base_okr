@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/data/core/base_widget_state.dart';
-import 'package:flutter_base_okr/ui/home/home_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'home_store.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
