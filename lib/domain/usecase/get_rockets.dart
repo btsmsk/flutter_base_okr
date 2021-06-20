@@ -1,12 +1,10 @@
-import 'package:flutter_base_okr/data/response/rocket_list.dart';
-import 'package:flutter_base_okr/domain/repository/repository.dart';
-import 'package:injectable/injectable.dart';
+import 'package:flutter_base_okr/data/repository/vehicle_repository.dart';
+import 'package:flutter_base_okr/data/response/rocket.dart';
 
-@Injectable()
 class GetRocketsUseCase {
-  final Repository repository;
+  final VehicleRepository repository;
 
   GetRocketsUseCase(this.repository);
 
-  Future<RocketList> run() async => repository.getRockets();
+  Future run() async => repository.getRockets();
 }
