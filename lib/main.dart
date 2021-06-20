@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/routes/app_pages.dart';
 import 'package:flutter_base_okr/routes/app_routes.dart';
@@ -12,6 +11,6 @@ void main() {
     ),
     debugShowCheckedModeBanner: false,
     getPages: AppPages.routes,
-    initialRoute: Routes.HOME,
+    initialRoute: Routes.APP,
   ));
 }
