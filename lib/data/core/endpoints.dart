@@ -6,4 +6,7 @@ class Endpoints {
 
   // booking endpoints
   static const String getRockets = baseUrl + "/rockets";
+  static const String getShips = baseUrl + "/ships";
+  static const String getRoadster = baseUrl + "/roadster";
+  static const String getDragons = baseUrl + "/dragons";
 }

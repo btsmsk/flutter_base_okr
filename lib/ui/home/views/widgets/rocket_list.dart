@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/data/response/rocket.dart';
+import 'package:flutter_base_okr/data/models/vehicles/rocket_vehicle.dart';
 
 class RocketListWidget extends StatelessWidget {
-  final List<Rocket> rocketList;
+  final List<RocketVehicle> rocketList;
 
   const RocketListWidget({Key? key, required this.rocketList})
       : super(key: key);
@@ -27,7 +27,7 @@ class RocketListWidget extends StatelessWidget {
           );
   }
 
-  Widget _buildListItem(Rocket rocket) {
+  Widget _buildListItem(RocketVehicle rocket) {
     return ListTile(
       dense: true,
       title: Text(

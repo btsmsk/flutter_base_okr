@@ -10,4 +10,15 @@ class VehicleRepository {
     return vehicleRemoteDataSource.getRockets();
   }
 
+  getShips() async {
+    return vehicleRemoteDataSource.getShips();
+  }
+
+  getRoadster() async {
+    return vehicleRemoteDataSource.getRoadsters();
+  }
+
+  getDragons() async {
+    return vehicleRemoteDataSource.getDragons();
+  }
 }
