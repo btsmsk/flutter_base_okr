@@ -18,20 +18,28 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
+  get: ^4.1.4
+  flutter_svg: ^0.22.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  # The following adds the shared pref as a dependency in your application
+  shared_preferences: ^2.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+    image: assets/icons/icon_splash.png
+    color: "#151515"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -39,6 +47,8 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 
+  assets:
+    - assets/icons/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
