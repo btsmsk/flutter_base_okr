@@ -1,17 +1,17 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/ui/view/app.dart';
-import 'di/di.dart';
+import 'package:flutter_base_okr/routes/app_pages.dart';
+import 'package:flutter_base_okr/routes/app_routes.dart';
+import 'package:get/get.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await configureInjection();
-  return runZonedGuarded(() async {
-    runApp(App());
-  }, (error, stack) {
-    print(stack);
-    print(error);
-  });
+void main() {
+  runApp(GetMaterialApp(
+    title: 'Flutter Demo',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    debugShowCheckedModeBanner: false,
+    getPages: AppPages.routes,
+    initialRoute: Routes.HOME,
+  ));
 }
-

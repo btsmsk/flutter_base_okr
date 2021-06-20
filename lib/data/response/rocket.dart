@@ -4,6 +4,9 @@ Rocket rocketFromMap(String str) => Rocket.fromMap(json.decode(str));
 
 String rocketToMap(Rocket data) => json.encode(data.toMap());
 
+List<Rocket> rocketListFromJson(str) =>
+    List<Rocket>.from(str.map((x) => Rocket.fromMap(x)));
+
 class Rocket {
   Rocket({
     this.id,
