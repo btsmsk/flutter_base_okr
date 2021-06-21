@@ -3,6 +3,7 @@ import 'package:flutter_base_okr/data/repository/vehicle_repository.dart';
 import 'package:flutter_base_okr/domain/usecase/get_rockets.dart';
 import 'package:flutter_base_okr/ui/dashboard/controllers/dashboard_controller.dart';
 import 'package:flutter_base_okr/ui/home/controllers/home_controller.dart';
+import 'package:flutter_base_okr/ui/launches/controller/launches_controller.dart';
 import 'package:get/get.dart';
 
 class DashboardBinding implements Bindings {
@@ -15,5 +16,7 @@ class DashboardBinding implements Bindings {
         VehicleRepository(vehicleRemoteDataSource: VehicleRemoteDataSource()));
     Get.lazyPut<GetRocketsUseCase>(() => GetRocketsUseCase(Get.find()));
     Get.lazyPut<HomeController>(() => HomeController(Get.find()));
+    // Launches
+    Get.put<LaunchesController>(LaunchesController());
   }
 }

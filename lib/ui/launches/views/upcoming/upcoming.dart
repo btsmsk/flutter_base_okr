@@ -13,7 +13,7 @@ class Upcoming extends GetView {
           "Upcoming",
           style: TextStyle(color: Colors.black38, fontSize: 30),
         ),
-        color: Colors.cyan,
+        color: Colors.white,
       )),
     );
   }

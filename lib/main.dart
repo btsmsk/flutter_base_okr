@@ -7,7 +7,7 @@ void main() {
   runApp(GetMaterialApp(
     title: 'Flutter Demo',
     theme: ThemeData(
-      primarySwatch: Colors.blue,
+      primaryColor: Colors.white
     ),
     debugShowCheckedModeBanner: false,
     getPages: AppPages.routes,
