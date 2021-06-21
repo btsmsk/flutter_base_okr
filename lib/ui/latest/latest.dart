@@ -8,12 +8,12 @@ class Latest extends GetView {
     return Scaffold(
       body: Center(
           child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          "Latest",
-          style: TextStyle(color: Colors.black38, fontSize: 30),
-        ),
-        color: Colors.deepPurple,
+          alignment: Alignment.center,
+          child: Text(
+            "Latest",
+            style: TextStyle(color: Colors.black38, fontSize: 30),
+          ),
+          color: Colors.deepPurple,
       )),
     );
   }

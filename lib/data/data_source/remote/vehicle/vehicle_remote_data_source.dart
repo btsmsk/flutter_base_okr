@@ -9,8 +9,7 @@ class VehicleRemoteDataSource extends GetConnect {
   Future<List<RocketVehicle>> getRockets() async {
     List<RocketVehicle> rockets = <RocketVehicle>[];
 
-    final response =
-        await get<List<RocketVehicle>>(Endpoints.getRockets, decoder: (body) {
+    final response = await get<List<RocketVehicle>>(Endpoints.getRockets, decoder: (body) {
       rockets = rocketListFromJson(body);
       return rockets;
     });
@@ -24,8 +23,7 @@ class VehicleRemoteDataSource extends GetConnect {
   Future<List<ShipVehicle>> getShips() async {
     List<ShipVehicle> ships = <ShipVehicle>[];
 
-    final response =
-        await get<List<ShipVehicle>>(Endpoints.getShips, decoder: (body) {
+    final response = await get<List<ShipVehicle>>(Endpoints.getShips, decoder: (body) {
       ships = shipListFromJson(body);
       return ships;
     });
@@ -54,8 +52,7 @@ class VehicleRemoteDataSource extends GetConnect {
   Future<List<DragonVehicle>> getDragons() async {
     List<DragonVehicle> dragons = <DragonVehicle>[];
 
-    final response =
-        await get<List<DragonVehicle>>(Endpoints.getDragons, decoder: (body) {
+    final response = await get<List<DragonVehicle>>(Endpoints.getDragons, decoder: (body) {
       dragons = dragonsFromJson(body);
       return dragons;
     });
