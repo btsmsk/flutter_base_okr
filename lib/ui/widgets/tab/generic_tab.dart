@@ -40,7 +40,7 @@ class GenericTab extends StatelessWidget {
               indicatorWeight: 10,
               indicator: UnderlineTabIndicator(
                   borderSide:
-                  BorderSide(width: Dimens.XXSMALL, color: Colors.red)),
+                      BorderSide(width: Dimens.XXSMALL, color: Colors.red)),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: Colors.black38,
               labelColor: Colors.black87,
@@ -84,4 +84,3 @@ class Tab extends StatelessWidget {
     );
   }
 }
-
