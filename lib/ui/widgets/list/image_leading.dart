@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_okr/utils/dimens.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ImageLeading extends StatelessWidget {
-  static const smallSize = 40.0, bigSize = 69.0;
+  static const smallSize = Dimens.XXXLARGE, bigSize = Dimens.LEADING_IMAGE_BIG;
 
   final String? url;
   final num? size;

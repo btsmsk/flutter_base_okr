@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_okr/utils/dimens.dart';
 
 class ListCell extends StatelessWidget {
   final Widget? leading, trailing;
@@ -31,7 +32,7 @@ class ListCell extends StatelessWidget {
   }) {
     return ListCell(
       key: key,
-      leading: Icon(icon, size: 40),
+      leading: Icon(icon, size: Dimens.XXXLARGE),
       trailing: trailing,
       title: title,
       subtitle: subtitle,
@@ -56,7 +57,7 @@ class ListCell extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
           ),
-          if (subtitle != null) SizedBox(height: 12, width: 12),
+          if (subtitle != null) SizedBox(height: Dimens.MEDIUM, width: Dimens.MEDIUM),
         ],
       ),
       subtitle: subtitle == null

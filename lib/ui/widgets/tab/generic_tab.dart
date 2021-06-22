@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/ui/util/dimens.dart';
+import 'package:flutter_base_okr/utils/dimens.dart';
 
 class TabItem {
   final String title;
-  final IconData icon;
+  final IconData? icon;
   final Widget widget;
 
-  TabItem({required this.title, required this.icon, required this.widget});
+  TabItem({required this.title, this.icon, required this.widget});
 }
 
 class GenericTab extends StatelessWidget {
@@ -57,9 +57,9 @@ class GenericTab extends StatelessWidget {
 
 class Tab extends StatelessWidget {
   final String title;
-  final IconData icon;
+  final IconData? icon;
 
-  Tab({required this.title, required this.icon});
+  Tab({required this.title, this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class Tab extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
+          if(icon != null) Padding(
               padding: EdgeInsets.only(
                   top: Dimens.XSMALL,
                   right: Dimens.SMALL,
