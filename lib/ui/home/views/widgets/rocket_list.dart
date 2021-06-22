@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/data/models/vehicles/rocket_vehicle.dart';
+import 'package:flutter_base_okr/ui/home/views/widgets/vehicle_cell.dart';
 
 class RocketListWidget extends StatelessWidget {
   final List<RocketVehicle> rocketList;
@@ -14,7 +15,7 @@ class RocketListWidget extends StatelessWidget {
         ? ListView.separated(
             itemCount: rocketList.length,
             separatorBuilder: (context, position) {
-              return Divider();
+              return SizedBox(height: 16);
             },
             itemBuilder: (context, position) {
               return _buildListItem(rocketList.elementAt(position));
@@ -28,21 +29,12 @@ class RocketListWidget extends StatelessWidget {
   }
 
   Widget _buildListItem(RocketVehicle rocket) {
-    return ListTile(
-      dense: true,
-      title: Text(
-        '${rocket.rocketName}',
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        softWrap: false,
-        style: TextStyle(color: Colors.black45),
+    return Card(
+      elevation: 8,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.toDouble())
       ),
-      subtitle: Text(
-        '${rocket.description}',
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        softWrap: false,
-      ),
+      child: VehicleCell(rocket),
     );
   }
 }
