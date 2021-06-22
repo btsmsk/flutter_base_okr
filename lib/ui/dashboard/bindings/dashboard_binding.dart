@@ -1,20 +1,36 @@
 import 'package:flutter_base_okr/data/data_source/remote/vehicle/vehicle_remote_data_source.dart';
 import 'package:flutter_base_okr/data/repository/vehicle_repository.dart';
-import 'package:flutter_base_okr/domain/usecase/get_rockets.dart';
+import 'package:flutter_base_okr/domain/usecase/vehicles/get_dragons.dart';
+import 'package:flutter_base_okr/domain/usecase/vehicles/get_rockets.dart';
+import 'package:flutter_base_okr/domain/usecase/vehicles/get_ships.dart';
 import 'package:flutter_base_okr/ui/dashboard/controllers/dashboard_controller.dart';
 import 'package:flutter_base_okr/ui/home/controllers/home_controller.dart';
 import 'package:flutter_base_okr/ui/launches/controller/launches_controller.dart';
+import 'package:flutter_base_okr/ui/vehicles/controllers/dragons_controller.dart';
+import 'package:flutter_base_okr/ui/vehicles/controllers/rockets_controller.dart';
+import 'package:flutter_base_okr/ui/vehicles/controllers/ships_controller.dart';
+import 'package:flutter_base_okr/ui/vehicles/controllers/vehicles_controller.dart';
 import 'package:get/get.dart';
 
 class DashboardBinding implements Bindings {
   @override
   void dependencies() {
+    // Dashboard
     Get.lazyPut<DashboardController>(() => DashboardController());
-    Get.lazyPut<VehicleRepository>(() =>
-        VehicleRepository(vehicleRemoteDataSource: VehicleRemoteDataSource()));
-    Get.lazyPut<GetRocketsUseCase>(() => GetRocketsUseCase(Get.find()));
-    Get.lazyPut<HomeController>(() => HomeController(Get.find()));
+    // Home
+    Get.lazyPut<HomeController>(() => HomeController());
     // Launches
     Get.put<LaunchesController>(LaunchesController());
+    // Vehicles
+    Get.lazyPut<VehicleRepository>(() =>
+        VehicleRepository(vehicleRemoteDataSource: VehicleRemoteDataSource()));
+    Get.lazyPut<GetRocketsUseCase>(() => GetRocketsUseCase(repository: Get.find()));
+    Get.lazyPut<GetShipsUseCase>(() => GetShipsUseCase(repository: Get.find()));
+    Get.lazyPut<GetDragonsUseCase>(() => GetDragonsUseCase(repository: Get.find()));
+    Get.put<VehiclesController>(VehiclesController());
+    Get.put<RocketsController>(RocketsController(rocketsUseCase: Get.find()));
+    Get.put<ShipsController>(ShipsController(shipsUseCase: Get.find()));
+    Get.put<DragonsController>(DragonsController(dragonsUseCase: Get.find()));
+
   }
 }
