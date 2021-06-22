@@ -8,12 +8,12 @@ class Upcoming extends GetView {
     return Scaffold(
       body: Center(
           child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            "Upcoming",
-            style: TextStyle(color: Colors.black38, fontSize: 30),
-          ),
-          color: Colors.cyan,
+        alignment: Alignment.center,
+        child: Text(
+          "Upcoming",
+          style: TextStyle(color: Colors.black38, fontSize: 30),
+        ),
+        color: Colors.white,
       )),
     );
   }
