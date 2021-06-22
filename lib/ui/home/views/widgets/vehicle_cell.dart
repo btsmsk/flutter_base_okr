@@ -23,7 +23,6 @@ class VehicleCell extends StatelessWidget {
           onTap: () => {
             // no-op
           }),
-      Divider(height: 0, indent: 75)
     ]);
   }
 }

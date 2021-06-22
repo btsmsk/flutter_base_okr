@@ -15,7 +15,7 @@ class RocketListWidget extends StatelessWidget {
         ? ListView.separated(
             itemCount: rocketList.length,
             separatorBuilder: (context, position) {
-              return Divider();
+              return SizedBox(height: 16);
             },
             itemBuilder: (context, position) {
               return _buildListItem(rocketList.elementAt(position));
