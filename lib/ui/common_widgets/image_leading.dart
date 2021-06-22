@@ -3,25 +3,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ProfileImage extends StatelessWidget {
+class ImageLeading extends StatelessWidget {
   static const smallSize = 40.0, bigSize = 69.0;
 
   final String? url;
   final num? size;
   final VoidCallback? onTap;
 
-  const ProfileImage({
+  const ImageLeading({
     @required this.url,
     @required this.size,
     this.onTap,
   });
 
-  factory ProfileImage.small(String url) {
-    return ProfileImage(url: url, size: smallSize);
+  factory ImageLeading.small(String url) {
+    return ImageLeading(url: url, size: smallSize);
   }
 
-  factory ProfileImage.big(String url, {VoidCallback? onTap}) {
-    return ProfileImage(url: url, size: bigSize, onTap: onTap);
+  factory ImageLeading.big(String url, {VoidCallback? onTap}) {
+    return ImageLeading(url: url, size: bigSize, onTap: onTap);
   }
 
   @override

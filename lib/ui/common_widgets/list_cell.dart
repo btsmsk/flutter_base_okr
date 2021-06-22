@@ -76,19 +76,3 @@ class ListCell extends StatelessWidget {
     );
   }
 }
-
-class TrailingText extends StatelessWidget {
-  final String data;
-
-  const TrailingText(this.data, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      data,
-      style: Theme.of(context).textTheme.bodyText2?.copyWith(
-        color: Theme.of(context).textTheme.caption?.color,
-      ),
-    );
-  }
-}

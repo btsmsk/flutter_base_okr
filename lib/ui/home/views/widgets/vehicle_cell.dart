@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/data/models/vehicles/vehicle.dart';
-import 'package:flutter_base_okr/ui/common_widgets/profile_image.dart';
+import 'package:flutter_base_okr/ui/common_widgets/image_leading.dart';
 
 import '../../../common_widgets/list_cell.dart';
 
@@ -16,7 +16,7 @@ class VehicleCell extends StatelessWidget {
       ListCell(
           leading: ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(8)),
-            child: ProfileImage.small(vehicle.photos?.first ?? ""),
+            child: ImageLeading.small(vehicle.photos?.first ?? ""),
           ),
           title: vehicle.name,
           subtitle: vehicle.firstFlight.toString(),
