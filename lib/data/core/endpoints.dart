@@ -9,4 +9,8 @@ class Endpoints {
   static const String getShips = baseUrl + "/ships";
   static const String getRoadster = baseUrl + "/roadster";
   static const String getDragons = baseUrl + "/dragons";
+
+  // launches
+  static const String launches = "/launches";
+  static const String upcoming = baseUrl + launches + "/upcoming";
 }
