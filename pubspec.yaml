@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   get: ^4.1.4
   flutter_svg: ^0.22.0
+  json_annotation: ^4.0.0
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -37,6 +39,18 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  build_runner: ^2.0.0
+
+  # Used by tests. Not required to use `json_serializable`.
+  build_verify: ^2.0.0
+
+  json_serializable: ^4.0.0
+
+  # Used by tests. Not required to use `json_serializable`.
+  path: ^1.8.0
+  # Used by tests. Not required to use `json_serializable`.
+  test: ^1.16.0
 
 flutter_native_splash:
     image: assets/icons/icon_splash.png
