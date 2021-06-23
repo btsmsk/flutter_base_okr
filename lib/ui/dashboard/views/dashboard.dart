@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/ui/company/company.dart';
+import 'package:flutter_base_okr/ui/company/views/company.dart';
 import 'package:flutter_base_okr/ui/home/views/home.dart';
 import 'package:flutter_base_okr/ui/launches/views/launches.dart';
 import 'package:flutter_base_okr/utils/dimens.dart';

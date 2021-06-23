@@ -1,4 +1,4 @@
-import 'package:flutter_base_okr/domain/usecase/upcoming_launches_use_case.dart';
+import 'package:flutter_base_okr/domain/usecase/launches/upcoming/upcoming_launches_use_case.dart';
 import 'package:get/get.dart';
 
 class UpcomingController extends GetxController with StateMixin {
