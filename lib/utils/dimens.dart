@@ -6,6 +6,7 @@ class Dimens {
   static const double TABHEIGHT = 140;
 
   static const double LEADING_IMAGE_BIG = 68;
+  static const double ACTION_LABEL = 12;
 
   static const double XXSMALL = 2;
   static const double XSMALL = 4;

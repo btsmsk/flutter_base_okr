@@ -11,6 +11,6 @@ void main() {
     ),
     debugShowCheckedModeBanner: false,
     getPages: AppPages.routes,
-    initialRoute: Routes.APP,
+    initialRoute: Routes.APP
   ));
 }
