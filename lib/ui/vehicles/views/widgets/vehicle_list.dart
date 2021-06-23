@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/data/models/vehicles/vehicle.dart';
+import 'package:flutter_base_okr/ui/widgets/list/action_button.dart';
 import 'package:flutter_base_okr/ui/widgets/list/image_leading.dart';
 import 'package:flutter_base_okr/ui/widgets/list/list_cell.dart';
 import 'package:flutter_base_okr/utils/dimens.dart';
@@ -14,15 +15,17 @@ class VehicleListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return vehicleList.isNotEmpty
-        ? ListView.separated(
-            itemCount: vehicleList.length,
-            separatorBuilder: (context, position) {
-              return SizedBox(height: Dimens.MEDIUM);
-            },
-            itemBuilder: (context, position) {
-              return _buildListItem(vehicleList.elementAt(position));
-            },
-          )
+        ? Padding(
+            padding: EdgeInsets.only(left: Dimens.SMALL, right: Dimens.SMALL),
+            child: ListView.separated(
+              itemCount: vehicleList.length,
+              separatorBuilder: (context, position) {
+                return SizedBox(height: Dimens.MEDIUM);
+              },
+              itemBuilder: (context, position) {
+                return _buildListItem(vehicleList.elementAt(position));
+              },
+            ))
         : Center(
             child: Text(
               "No item",
@@ -44,9 +47,21 @@ class VehicleListWidget extends StatelessWidget {
             ),
             title: vehicle.name,
             subtitle: vehicle.firstFlight.toString(),
+            actions: [
+              ActionButton(
+                icon: Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                label: "Star",
+                onTap: () => {
+                  // no-op
+                },
+              )
+            ],
             onTap: () => {
                   // no-op
-                }),
+                })
       ]),
     );
   }
