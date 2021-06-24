@@ -2,11 +2,11 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'cores.g.dart';
 
-@JsonSerializable(includeIfNull: false)
+@JsonSerializable()
 class Cores {
-  factory Cores.fromJson(Map<String, dynamic> json) => _$CoresFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$CoresToJson(this);
+  factory Cores.fromJson(Map<String, dynamic> json) => _$CoresFromJson(json);
+  Map<String, dynamic> toJson() => _$CoresToJson(this);
 
   @JsonKey(name: "core_serial")
   String? coreSerial;

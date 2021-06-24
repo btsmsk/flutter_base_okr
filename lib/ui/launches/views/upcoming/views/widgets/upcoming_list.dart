@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/data/models/launches/upcoming/launches.dart';
-
+import 'package:flutter_base_okr/data/models/launches/launches.dart';
 
 class UpcomingListWidget extends StatelessWidget {
   final List<Launches> upcomingLaunchList;
@@ -32,14 +31,14 @@ class UpcomingListWidget extends StatelessWidget {
     return ListTile(
       dense: true,
       title: Text(
-        '${item.missionName}',
+        "${(item.rocket?.rocketName)} - ${(item.missionName)}",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         softWrap: false,
         style: TextStyle(color: Colors.black45),
       ),
       subtitle: Text(
-        '${item.missionName}',
+        "${(item.launchDateLocal)}",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         softWrap: false,

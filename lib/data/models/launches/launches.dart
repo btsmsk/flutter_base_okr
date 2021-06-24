@@ -1,16 +1,25 @@
+
+import 'package:flutter_base_okr/data/models/launches/rocket.dart';
+import 'package:flutter_base_okr/data/models/launches/telemetry.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'launch_failure_details.dart';
+import 'launch_site.dart';
+import 'links.dart';
+import 'timeline.dart';
 
 part 'launches.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Launches {
-  static List<Launches> getLaunchModelList(dynamic body) =>
+
+  static List<Launches> getLaunchModelList(body) =>
       body.map((i) => Launches.fromJson(i)).toList().cast<Launches>();
 
   factory Launches.fromJson(Map<String, dynamic> json) =>
       _$LaunchesFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$LaunchesToJson(this);
+  Map<String, dynamic> toJson() => _$LaunchesToJson(this);
 
   @JsonKey(name: "flight_number")
   int? flightNumber;
@@ -34,22 +43,22 @@ class Launches {
   bool? tbd;
   @JsonKey(name: "launch_window")
   int? launchWindow;
-  Map<String, dynamic>? rocket;
+  Rocket? rocket;
   List<String>? ships;
-  Map<String, dynamic>? telemetry;
+  Telemetry? telemetry;
   @JsonKey(name: "launch_site")
-  Map<String, dynamic>? launchSite;
+  LaunchSite launchSite;
   @JsonKey(name: "launch_success")
   bool? launchSuccess;
   @JsonKey(name: "launch_failure_details")
-  Map<String, dynamic>? launchFailureDetails;
-  Map<String, dynamic>? links;
+  LaunchFailureDetails? launchFailureDetails;
+  Links? links;
   String? details;
   @JsonKey(name: "static_fire_date_utc")
   String? staticFireDateUtc;
   @JsonKey(name: "static_fire_date_unix")
   int? staticFireDateUnix;
-  Map<String, dynamic>? timeline;
+  Timeline? timeline;
 
   Launches(
       this.flightNumber,

@@ -8,10 +8,10 @@ class SecondStage {
   factory SecondStage.fromJson(Map<String, dynamic> json) =>
       _$SecondStageFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$SecondStageToJson(this);
+  Map<String, dynamic> toJson() => _$SecondStageToJson(this);
 
   int? block;
-  Map<String, dynamic>? payloads;
+  List<Payloads>? payloads;
 
   SecondStage(this.block, this.payloads);
 }

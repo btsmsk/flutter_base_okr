@@ -7,7 +7,7 @@ class Fairings {
   factory Fairings.fromJson(Map<String, dynamic> json) =>
       _$FairingsFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$FairingsToJson(this);
+  Map<String, dynamic> toJson() => _$FairingsToJson(this);
 
   bool? reused;
   @JsonKey(name: "recovery_attempt")

@@ -7,7 +7,7 @@ class LaunchFailureDetails {
   factory LaunchFailureDetails.fromJson(Map<String, dynamic> json) =>
       _$LaunchFailureDetailsFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$LaunchFailureDetailsToJson(this);
+  Map<String, dynamic> toJson() => _$LaunchFailureDetailsToJson(this);
 
   int? time;
   int? altitude;
