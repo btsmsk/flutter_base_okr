@@ -1,13 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'company.g.dart';
+part 'company_info.g.dart';
 
 @JsonSerializable()
-class Company {
-  factory Company.fromJson(Map<String, dynamic> json) =>
-      _$CompanyFromJson(json);
+class CompanyInfo {
+  factory CompanyInfo.fromJson(Map<String, dynamic> json) => _$CompanyInfoFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$CompanyToJson(this);
+  Map<String, dynamic> toJson(CompanyInfo instance) => _$CompanyInfoToJson(this);
 
   String? name;
   String? founder;
@@ -28,7 +27,7 @@ class Company {
   Map<String, dynamic>? links;
   String? summary;
 
-  Company(
+  CompanyInfo(
       {this.name,
       this.founder,
       this.founded,

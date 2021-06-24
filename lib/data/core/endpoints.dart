@@ -13,4 +13,7 @@ class Endpoints {
   // launches
   static const String launches = "/launches";
   static const String upcoming = baseUrl + launches + "/upcoming";
+
+  // company
+  static const company = '$baseUrl/info';
 }
