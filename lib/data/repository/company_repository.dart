@@ -6,5 +6,5 @@ class CompanyRepository {
 
   CompanyRepository({required this.companyRemoteDataSource});
 
-  Future<Future<CompanyInfo>> getCompany() async => companyRemoteDataSource.getCompany();
+  Future<CompanyInfo> getCompany() async => companyRemoteDataSource.getCompany();
 }
