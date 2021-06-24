@@ -7,7 +7,7 @@ class Timeline {
   factory Timeline.fromJson(Map<String, dynamic> json) =>
       _$TimelineFromJson(json);
 
-  Map<String, dynamic>? toJson(instance) => _$TimelineToJson(this);
+  Map<String, dynamic>? toJson() => _$TimelineToJson(this);
 
   @JsonKey(name: "webcast_liftoff")
   int? webcastLiftoff;

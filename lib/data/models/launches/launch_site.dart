@@ -7,7 +7,7 @@ class LaunchSite {
   factory LaunchSite.fromJson(Map<String, dynamic> json) =>
       _$LaunchSiteFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$LaunchSiteToJson(this);
+  Map<String, dynamic> toJson() => _$LaunchSiteToJson(this);
 
   @JsonKey(name: "site_id")
   String? siteId;

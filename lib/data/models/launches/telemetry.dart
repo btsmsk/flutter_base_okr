@@ -7,7 +7,7 @@ class Telemetry {
   factory Telemetry.fromJson(Map<String, dynamic> json) =>
       _$TelemetryFromJson(json);
 
-  Map<String, dynamic>? toJson(instance) => _$TelemetryToJson(this);
+  Map<String, dynamic>? toJson() => _$TelemetryToJson(this);
 
   @JsonKey(name: "flight_club")
   String? flightClub;

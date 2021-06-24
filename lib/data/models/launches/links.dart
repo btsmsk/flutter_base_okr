@@ -6,7 +6,7 @@ part 'links.g.dart';
 class Links {
   factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$LinksToJson(this);
+  Map<String, dynamic> toJson() => _$LinksToJson(this);
 
   @JsonKey(name: "mission_patch")
   String? missionPatch;
@@ -29,7 +29,7 @@ class Links {
   @JsonKey(name: "youtube_id")
   String? youtubeId;
   @JsonKey(name: "flickr_images")
-  Map<String, dynamic>? flickrImages;
+  List<String>? flickrImages;
 
   Links(
       this.missionPatch,

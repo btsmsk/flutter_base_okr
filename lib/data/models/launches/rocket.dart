@@ -9,8 +9,7 @@ part 'rocket.g.dart';
 @JsonSerializable()
 class Rocket {
   factory Rocket.fromJson(Map<String, dynamic> json) => _$RocketFromJson(json);
-
-  Map<String, dynamic> toJson(instance) => _$RocketToJson(this);
+  Map<String, dynamic> toJson() => _$RocketToJson(this);
 
   @JsonKey(name: "rocket_id")
   String? rocketId;
@@ -19,11 +18,10 @@ class Rocket {
   @JsonKey(name: "rocket_type")
   String? rocketType;
   @JsonKey(name: "first_stage")
-  Map<String, dynamic>? firstStage;
+  FirstStage? firstStage;
   @JsonKey(name: "second_stage")
-  Map<String, dynamic>? secondStage;
-  Map<String, dynamic>? fairings;
+  SecondStage? secondStage;
 
   Rocket(this.rocketId, this.rocketName, this.rocketType, this.firstStage,
-      this.secondStage, this.fairings);
+      this.secondStage);
 }

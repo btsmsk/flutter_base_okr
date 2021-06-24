@@ -7,7 +7,7 @@ class Payloads {
   factory Payloads.fromJson(Map<String, dynamic> json) =>
       _$PayloadsFromJson(json);
 
-  Map<String, dynamic> toJson(instance) => _$PayloadsToJson(this);
+  Map<String, dynamic> toJson() => _$PayloadsToJson(this);
 
   @JsonKey(name: "payload_id")
   String? payloadId;
