@@ -33,71 +33,73 @@ class ListCell extends StatelessWidget {
     VoidCallback? onTap,
     EdgeInsets? contentPadding,
     bool dense = false,
-  }) {
-    return ListCell(
-      key: key,
-      leading: Icon(icon, size: Dimens.XLARGE),
-      trailing: trailing,
-      title: title,
-      subtitle: subtitle,
-      onTap: onTap,
-      contentPadding: contentPadding,
-      dense: dense,
-    );
-  }
+  }) =>
+      ListCell(
+        key: key,
+        leading: Icon(icon, size: Dimens.XLARGE),
+        trailing: trailing,
+        title: title,
+        subtitle: subtitle,
+        onTap: onTap,
+        contentPadding: contentPadding,
+        dense: dense,
+      );
 
   @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Padding(
-        padding: EdgeInsets.only(top: Dimens.XSMALL, bottom: Dimens.XSMALL),
-        child: leading,
-      ),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title!,
-            style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-          ),
-          if (subtitle != null)
-            SizedBox(height: Dimens.SMALL, width: Dimens.SMALL),
-        ],
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            subtitle ?? "",
-            style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                  color: Theme.of(context).textTheme.caption?.color,
-                ),
-          ),
-          if (actions != null && actions!.isNotEmpty)
-            Padding(
-                padding: EdgeInsets.only(top: Dimens.XSMALL, bottom: Dimens.XSMALL),
-                child: Container(
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: actions as List<Widget>)))
-        ],
-      ),
-      trailing: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          if (onTap != null && trailing == null)
-            Icon(Icons.chevron_right)
-          else
-            trailing!,
-        ],
-      ),
-      contentPadding: contentPadding,
-      onTap: onTap,
-      dense: dense,
-    );
-  }
+  Widget build(BuildContext context) => ListTile(
+        leading: Padding(
+          padding:
+              const EdgeInsets.only(top: Dimens.XSMALL, bottom: Dimens.XSMALL),
+          child: leading
+        ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            if (actions != null && actions!.isNotEmpty)
+              const SizedBox(height: Dimens.MEDIUM, width: Dimens.SMALL),
+            Text(
+              title!,
+              style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+            if (subtitle != null)
+              const SizedBox(height: Dimens.SMALL, width: Dimens.SMALL),
+          ],
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              subtitle ?? '',
+              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    color: Theme.of(context).textTheme.caption?.color,
+                  ),
+            ),
+            if (actions != null && actions!.isNotEmpty)
+              Padding(
+                  padding: const EdgeInsets.only(
+                      top: Dimens.XSMALL, bottom: Dimens.XSMALL),
+                  // ignore: avoid_unnecessary_containers
+                  child: Container(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: actions as List<Widget>)))
+          ],
+        ),
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            if (onTap != null && trailing == null)
+              const Icon(Icons.chevron_right)
+            else
+              trailing!,
+          ],
+        ),
+        contentPadding: contentPadding,
+        onTap: onTap,
+        dense: dense,
+      );
 }

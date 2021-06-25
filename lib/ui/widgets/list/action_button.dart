@@ -35,7 +35,7 @@ class ActionButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Dimens.XXLARGE.toDouble())),
             child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   left: Dimens.SMALL,
                   right: Dimens.SMALL,
                   top: Dimens.XXSMALL,
@@ -44,12 +44,11 @@ class ActionButton extends StatelessWidget {
                 onTap: onTap,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     icon,
                     if (label != null)
                       Padding(
-                        padding: EdgeInsets.only(left: Dimens.XSMALL),
+                        padding: const EdgeInsets.only(left: Dimens.XSMALL),
                         child: Text(
                           label!,
                           style: TextStyle(

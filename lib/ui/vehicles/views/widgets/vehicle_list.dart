@@ -13,28 +13,21 @@ class VehicleListWidget extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return vehicleList.isNotEmpty
+  Widget build(BuildContext context) => vehicleList.isNotEmpty
         ? Padding(
-            padding: EdgeInsets.only(left: Dimens.SMALL, right: Dimens.SMALL),
+            padding: const EdgeInsets.only(left: Dimens.SMALL, right: Dimens.SMALL),
             child: ListView.separated(
               itemCount: vehicleList.length,
-              separatorBuilder: (context, position) {
-                return SizedBox(height: Dimens.MEDIUM);
-              },
-              itemBuilder: (context, position) {
-                return _buildListItem(vehicleList.elementAt(position));
-              },
+              separatorBuilder: (context, position) => const SizedBox(height: Dimens.MEDIUM),
+              itemBuilder: (context, position) => _buildListItem(vehicleList.elementAt(position)),
             ))
-        : Center(
+        : const Center(
             child: Text(
-              "No item",
+              'No item',
             ),
           );
-  }
 
-  Widget _buildListItem(Vehicle vehicle) {
-    return Card(
+  Widget _buildListItem(Vehicle vehicle) => Card(
       elevation: Dimens.SMALL,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(Dimens.MEDIUM.toDouble())),
@@ -43,17 +36,18 @@ class VehicleListWidget extends StatelessWidget {
             leading: ClipRRect(
               borderRadius:
                   const BorderRadius.all(Radius.circular(Dimens.SMALL)),
-              child: ImageLeading.small(vehicle.photos?.first ?? ""),
+              child: ImageLeading.small(vehicle.photos?.first ?? ''),
             ),
             title: vehicle.name,
             subtitle: vehicle.firstFlight.toString(),
             actions: [
               ActionButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.star,
                   color: Colors.amber,
                 ),
-                label: "Star",
+                label: 'Star',
+                backgroundColor: Colors.grey.shade200,
                 onTap: () => {
                   // no-op
                 },
@@ -64,5 +58,4 @@ class VehicleListWidget extends StatelessWidget {
                 })
       ]),
     );
-  }
 }
