@@ -8,6 +8,8 @@ class Dimens {
   static const double LEADING_IMAGE_BIG = 68;
   static const double ACTION_LABEL = 12;
 
+  static const double DEFAULT_CARD_RADIUS = 12;
+
   static const double XXSMALL = 2;
   static const double XSMALL = 4;
   static const double SMALL = 8;

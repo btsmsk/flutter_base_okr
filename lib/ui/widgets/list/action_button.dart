@@ -21,49 +21,50 @@ class ActionButton extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return Semantics(
-        button: true,
-        enabled: onTap != null,
-        child: InkResponse(
-          onTap: onTap,
-          focusColor: theme.focusColor,
-          hoverColor: theme.hoverColor,
-          highlightColor: theme.highlightColor,
-          splashColor: theme.splashColor,
-          child: Card(
-            elevation: Dimens.ELEVATION,
-            color: backgroundColor,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimens.XXLARGE.toDouble())),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: Dimens.SMALL,
-                  right: Dimens.SMALL,
-                  top: Dimens.XXSMALL,
-                  bottom: Dimens.XXSMALL),
-              child: InkWell(
-                onTap: onTap,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    icon,
-                    if (label != null)
-                      Padding(
-                        padding: const EdgeInsets.only(left: Dimens.XSMALL),
-                        child: Text(
-                          label!,
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: labelColor,
-                              fontSize: Dimens.ACTION_LABEL),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                        ),
-                      )
-                  ],
-                ),
+      button: true,
+      enabled: onTap != null,
+      child: InkWell(
+        onTap: onTap,
+        focusColor: theme.focusColor,
+        hoverColor: theme.hoverColor,
+        highlightColor: theme.highlightColor,
+        splashColor: theme.splashColor,
+        child: Card(
+          elevation: Dimens.ELEVATION,
+          color: backgroundColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(Dimens.DEFAULT_CARD_RADIUS)),
+          child: Padding(
+            padding: const EdgeInsets.only(
+                left: Dimens.SMALL,
+                right: Dimens.SMALL,
+                top: Dimens.XXSMALL,
+                bottom: Dimens.XXSMALL),
+            child: InkWell(
+              onTap: onTap,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  icon,
+                  if (label != null)
+                    Padding(
+                      padding: const EdgeInsets.only(left: Dimens.XSMALL),
+                      child: Text(
+                        label!,
+                        style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: labelColor,
+                            fontSize: Dimens.ACTION_LABEL),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                    )
+                ],
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

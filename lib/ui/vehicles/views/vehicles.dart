@@ -10,12 +10,13 @@ import 'dragons/dragons.dart';
 
 class Vehicles extends GetView {
   @override
-  Widget build(BuildContext context) {
-    return GetBuilder<VehiclesController>(
-        builder: (controller) => GenericTab(tabItems: [
-              TabItem(title: "Rockets", widget: Rockets()),
-              TabItem(title: "Ships", widget: Ships()),
-              TabItem(title: "Dragons", widget: Dragons())
-            ]));
-  }
+  Widget build(BuildContext context) => GetBuilder<VehiclesController>(
+        builder: (controller) => GenericTab(
+          tabItems: [
+            TabItem(title: "Rockets", widget: Rockets()),
+            TabItem(title: "Ships", widget: Ships()),
+            TabItem(title: "Dragons", widget: Dragons())
+          ],
+        ),
+      );
 }

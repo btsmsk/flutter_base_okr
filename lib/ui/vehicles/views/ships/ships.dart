@@ -7,29 +7,25 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class Ships extends GetView {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [_buildMainContent()],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        body: Stack(
+          children: [_buildMainContent()],
+        ),
+      );
 
-  Widget _buildMainContent() {
-    return GetBuilder<ShipsController>(
+  Widget _buildMainContent() => GetBuilder<ShipsController>(
         builder: (controller) => Container(
-          child: controller.obx((state) {
-            return VehicleListWidget(vehicleList: state ?? []);
-          }, onError: (error) {
-            return Center(
+          child: controller.obx(
+            (state) => VehicleListWidget(vehicleList: state ?? []),
+            onError: (error) => Center(
               child: Text(error.toString()),
-            );
-          },
-              onLoading: Center(
-                child: CircularProgressIndicator(
-                  color: Colors.black45,
-                ),
-              )),
-        ));
-  }
+            ),
+            onLoading: const Center(
+              child: CircularProgressIndicator(
+                color: Colors.black45,
+              ),
+            ),
+          ),
+        ),
+      );
 }

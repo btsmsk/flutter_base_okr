@@ -13,33 +13,29 @@ class TabItem {
 class GenericTab extends StatelessWidget {
   final List<TabItem> tabItems;
 
-  GenericTab({required this.tabItems});
+  const GenericTab({required this.tabItems});
 
-  List<Widget> getWidgets() {
-    return tabItems.map((element) => element.widget).toList();
-  }
+  List<Widget> getWidgets() => tabItems.map((element) => element.widget).toList();
 
-  List<Widget> getTabs() {
-    return tabItems
+  List<Widget> getTabs() => tabItems
         .map((element) => Tab(title: element.title, icon: element.icon))
         .toList();
-  }
 
   @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
+  Widget build(BuildContext context) => DefaultTabController(
       length: tabItems.length,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(Dimens.TABHEIGHT),
+          preferredSize: const Size.fromHeight(Dimens.TABHEIGHT),
           child: Container(
-            padding: EdgeInsets.only(top: Dimens.SMALL),
+            padding: const EdgeInsets.only(top: Dimens.SMALL),
             color: Colors.white,
             child: TabBar(
               indicatorPadding: EdgeInsets.symmetric(vertical: Dimens.SMALL),
               indicatorWeight: 10,
-              indicator: UnderlineTabIndicator(
+              indicator: const UnderlineTabIndicator(
                   borderSide:
+                      // ignore: prefer_const_constructors
                       BorderSide(width: Dimens.XXSMALL, color: Colors.red)),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: Colors.black38,
@@ -52,7 +48,6 @@ class GenericTab extends StatelessWidget {
         body: TabBarView(children: getWidgets()),
       ),
     );
-  }
 }
 
 class Tab extends StatelessWidget {
@@ -62,25 +57,23 @@ class Tab extends StatelessWidget {
   Tab({required this.title, this.icon});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(bottom: Dimens.XSMALL),
+  Widget build(BuildContext context) => Container(
+      padding: const EdgeInsets.only(bottom: Dimens.XSMALL),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           if(icon != null) Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   top: Dimens.XSMALL,
                   right: Dimens.SMALL,
                   bottom: Dimens.SMALL),
               child: Icon(icon)),
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           )
         ],
       ),
     );
-  }
 }
