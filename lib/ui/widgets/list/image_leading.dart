@@ -17,17 +17,12 @@ class ImageLeading extends StatelessWidget {
     this.onTap,
   });
 
-  factory ImageLeading.small(String url) {
-    return ImageLeading(url: url, size: smallSize);
-  }
+  factory ImageLeading.small(String url) => ImageLeading(url: url, size: smallSize);
 
-  factory ImageLeading.big(String url, {VoidCallback? onTap}) {
-    return ImageLeading(url: url, size: bigSize, onTap: onTap);
-  }
+  factory ImageLeading.big(String url, {VoidCallback? onTap}) => ImageLeading(url: url, size: bigSize, onTap: onTap);
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       width: size?.toDouble(),
       height: size?.toDouble(),
       child: InkWell(
@@ -46,5 +41,4 @@ class ImageLeading extends StatelessWidget {
               ),
       ),
     );
-  }
 }
