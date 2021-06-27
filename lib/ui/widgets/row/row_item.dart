@@ -3,11 +3,11 @@ import 'package:flutter_base_okr/utils/dimens.dart';
 
 class RowItem extends StatelessWidget {
   final Widget title;
-  final Widget description;
+  final Widget? description;
 
   const RowItem({
     required this.title,
-    required this.description,
+    this.description,
     Key? key,
   }) : super(key: key);
 
@@ -32,7 +32,7 @@ class RowItem extends StatelessWidget {
 
   factory RowItem.text(
     String title,
-    String description, {
+    String? description, {
     Key? key,
     TextStyle? titleStyle,
     TextStyle? descriptionStyle,
@@ -63,7 +63,7 @@ class RowItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             _Text(
-              description,
+              description ?? '',
               style: descriptionStyle,
               textAlign: TextAlign.end,
               textOverflow: textOverflow,

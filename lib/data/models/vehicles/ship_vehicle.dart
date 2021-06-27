@@ -38,7 +38,7 @@ class ShipVehicle extends Vehicle{
   }): super(
     id: shipId,
     name: shipName,
-    type: shipType,
+    type: 'ship',
     url: url,
     mass: weightKg,
     active: active,
