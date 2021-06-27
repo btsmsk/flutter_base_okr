@@ -17,9 +17,9 @@ class ImageLeading extends StatelessWidget {
     this.onTap,
   });
 
-  factory ImageLeading.small(String url) => ImageLeading(url: url, size: smallSize);
+  factory ImageLeading.small(String? url) => ImageLeading(url: url, size: smallSize);
 
-  factory ImageLeading.big(String url, {VoidCallback? onTap}) => ImageLeading(url: url, size: bigSize, onTap: onTap);
+  factory ImageLeading.big(String? url, {VoidCallback? onTap}) => ImageLeading(url: url, size: bigSize, onTap: onTap);
 
   @override
   Widget build(BuildContext context) => SizedBox(

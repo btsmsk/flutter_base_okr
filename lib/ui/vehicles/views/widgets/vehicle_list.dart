@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/data/models/vehicles/vehicle.dart';
+import 'package:flutter_base_okr/routes/app_routes.dart';
 import 'package:flutter_base_okr/ui/widgets/list/action_button.dart';
 import 'package:flutter_base_okr/ui/widgets/list/image_leading.dart';
 import 'package:flutter_base_okr/ui/widgets/list/list_cell.dart';
+import 'package:flutter_base_okr/utils/date.dart';
 import 'package:flutter_base_okr/utils/dimens.dart';
+import 'package:get/get.dart';
 
 class VehicleListWidget extends StatelessWidget {
   final List<Vehicle> vehicleList;
@@ -41,10 +44,12 @@ class VehicleListWidget extends StatelessWidget {
               leading: ClipRRect(
                 borderRadius:
                     const BorderRadius.all(Radius.circular(Dimens.SMALL)),
-                child: ImageLeading.small(vehicle.photos?.first ?? ''),
+                child: ImageLeading.small(vehicle.photos?.first),
               ),
               title: vehicle.name,
-              subtitle: vehicle.firstFlight.toString(),
+              subtitle: vehicle.firstFlight != null
+                  ? 'First flight: ${defaultDateFormatter.format(vehicle.firstFlight!)}'
+                  : '',
               actions: [
                 ActionButton(
                   icon: const Icon(
@@ -58,9 +63,8 @@ class VehicleListWidget extends StatelessWidget {
                   },
                 )
               ],
-              onTap: () => {
-                // no-op
-              },
+              onTap: () =>
+                  Get.toNamed(Routes.VEHICLE_DETAIL, arguments: vehicle),
             )
           ],
         ),
