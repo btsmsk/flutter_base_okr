@@ -5,6 +5,7 @@ import 'package:flutter_base_okr/ui/home/views/home.dart';
 import 'package:flutter_base_okr/ui/launches/views/launches.dart';
 import 'package:flutter_base_okr/utils/dimens.dart';
 import 'package:flutter_base_okr/ui/vehicles/views/vehicles.dart';
+import 'package:flutter_base_okr/utils/themes.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../controllers/dashboard_controller.dart';
@@ -14,16 +15,31 @@ class Dashboard extends GetView {
 
   @override
   Widget build(BuildContext context) => GetBuilder<DashboardController>(
-        builder: (controller) => Scaffold(
-              appBar: AppBar(title: const Text('Tabs Demo'), elevation: Dimens.NONE),
+      builder: (controller) => Theme(
+            data: controller.currentTheme,
+            child: Scaffold(
+              appBar: AppBar(
+                title: const Text('Tabs Demo'),
+                elevation: Dimens.NONE,
+                actions: [
+                  IconButton(
+                    icon: Icon(controller.themeMode == ThemeModes.DARK
+                        ? Icons.light_mode
+                        : Icons.dark_mode),
+                    onPressed: () {
+                      controller.changeTheme(
+                          controller.themeMode == ThemeModes.DARK
+                              ? ThemeModes.LIGHT
+                              : ThemeModes.DARK);
+                    },
+                  )
+                ],
+              ),
               body: tabs[controller.currentIndex],
               bottomNavigationBar: BottomNavigationBar(
-                backgroundColor: Colors.white,
                 elevation: Dimens.ELEVATION,
                 type: BottomNavigationBarType.fixed,
                 currentIndex: controller.currentIndex,
-                selectedItemColor: Colors.black87,
-                unselectedItemColor: Colors.black38,
                 onTap: (index) {
                   controller.setCurrentTab(index);
                 },
@@ -52,5 +68,6 @@ class Dashboard extends GetView {
                   ),
                 ],
               ),
-            ));
+            ),
+          ));
 }

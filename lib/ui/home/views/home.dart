@@ -12,7 +12,6 @@ class HomeScreen extends GetView<HomeController> {
         body: Center(
           child: Container(
             alignment: Alignment.center,
-            color: Colors.white,
             child: CardCell.body(
               context,
               title: 'Title',
