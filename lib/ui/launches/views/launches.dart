@@ -8,8 +8,7 @@ import 'upcoming/views/upcoming.dart';
 
 class Launches extends GetView {
   @override
-  Widget build(BuildContext context) {
-    return GetBuilder<LaunchesController>(
+  Widget build(BuildContext context) => GetBuilder<LaunchesController>(
         builder: (controller) => GenericTab(tabItems: [
               TabItem(title: "Upcoming",
                   icon: Icons.timer,
@@ -21,5 +20,4 @@ class Launches extends GetView {
                   widget: Completed()
               )
             ]));
-  }
 }
