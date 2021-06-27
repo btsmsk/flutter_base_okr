@@ -13,10 +13,9 @@ class Dashboard extends GetView {
   final tabs = [HomeScreen(), Vehicles(), Launches(), Company()];
 
   @override
-  Widget build(BuildContext context) {
-    return GetBuilder<DashboardController>(
+  Widget build(BuildContext context) => GetBuilder<DashboardController>(
         builder: (controller) => Scaffold(
-              appBar: AppBar(title: Text('Tabs Demo'), elevation: Dimens.NONE),
+              appBar: AppBar(title: const Text('Tabs Demo'), elevation: Dimens.NONE),
               body: tabs[controller.currentIndex],
               bottomNavigationBar: BottomNavigationBar(
                 backgroundColor: Colors.white,
@@ -29,7 +28,7 @@ class Dashboard extends GetView {
                   controller.setCurrentTab(index);
                 },
                 items: <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
+                  const BottomNavigationBarItem(
                     label: "Home",
                     icon: Icon(Icons.home),
                   ),
@@ -43,16 +42,15 @@ class Dashboard extends GetView {
                         width: Dimens.LARGE,
                         height: Dimens.LARGE),
                   ),
-                  BottomNavigationBarItem(
+                  const BottomNavigationBarItem(
                     label: "Launches",
                     icon: Icon(Icons.access_time),
                   ),
-                  BottomNavigationBarItem(
+                  const BottomNavigationBarItem(
                     label: "Company",
                     icon: Icon(Icons.location_city),
                   ),
                 ],
               ),
             ));
-  }
 }

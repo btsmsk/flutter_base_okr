@@ -4,8 +4,7 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class Completed extends GetView {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       body: Center(
           child: Container(
         alignment: Alignment.center,
@@ -16,5 +15,4 @@ class Completed extends GetView {
         color: Colors.white,
       )),
     );
-  }
 }
