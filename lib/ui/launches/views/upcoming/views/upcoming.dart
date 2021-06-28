@@ -7,28 +7,22 @@ import 'package:get/get.dart';
 
 class Upcoming extends GetView<UpcomingController> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [_buildMainContent()],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        body: Stack(
+          children: [_buildMainContent()],
+        ),
+      );
 
-  Widget _buildMainContent() {
-    return Container(
-      child: controller.obx((state) {
-        return UpcomingListWidget(upcomingLaunchList: state ?? []);
-      }, onError: (error) {
-        return Center(
-          child: Text(error.toString()),
-        );
-      },
-          onLoading: Center(
-            child: CircularProgressIndicator(
-              color: Colors.black45,
-            ),
-          )),
-    );
-  }
+  Widget _buildMainContent() => Container(
+        child: controller.obx(
+            (state) => UpcomingListWidget(upcomingLaunchList: state ?? []),
+            onError: (error) => Center(
+                  child: Text(error.toString()),
+                ),
+            onLoading: const Center(
+              child: CircularProgressIndicator(
+                color: Colors.black45,
+              ),
+            )),
+      );
 }
