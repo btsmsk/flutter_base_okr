@@ -41,7 +41,7 @@ class CardCell extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.headline6?.copyWith(
                       fontWeight: FontWeight.bold,
-                      fontSize: Dimens.LARGE,
+                      fontSize: Dimens.MEDIUM,
                     ),
               ),
             child

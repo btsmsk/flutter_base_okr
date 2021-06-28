@@ -36,7 +36,7 @@ class RocketVehicle extends Vehicle{
     this.rocketName,
     this.rocketType,
   }) : super(
-    id: id.toString(),
+    id: rocketId,
     name: rocketName,
     type: rocketType,
     description: description,
@@ -74,7 +74,7 @@ class RocketVehicle extends Vehicle{
   String? rocketType;
 
   factory RocketVehicle.fromMap(Map<String, dynamic> json) => RocketVehicle(
-    id: json["id"] == null ? null : json["id"].toString(),
+    id: json["id"] == null ? null : json["rocket_id"].toString(),
     active: json["active"] == null ? null : json["active"],
     stages: json["stages"] == null ? null : json["stages"],
     boosters: json["boosters"] == null ? null : json["boosters"],
@@ -100,7 +100,7 @@ class RocketVehicle extends Vehicle{
   );
 
   Map<String, dynamic> toMap() => {
-    "id": id == null ? null : id,
+    "id": rocketId == null ? null : rocketId,
     "active": active == null ? null : active,
     "stages": stages == null ? null : stages,
     "boosters": boosters == null ? null : boosters,
