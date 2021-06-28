@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/ui/home/controllers/home_controller.dart';
+import 'package:flutter_base_okr/ui/settings/views/settings.dart';
 import 'package:flutter_base_okr/ui/widgets/row/card_cell.dart';
 import 'package:flutter_base_okr/ui/widgets/row/row_container.dart';
 import 'package:flutter_base_okr/ui/widgets/row/row_item.dart';
@@ -52,6 +53,22 @@ class HomeScreen extends GetView<HomeController> {
                         fontWeight: FontWeight.normal),
                     textOverflow: TextOverflow.ellipsis,
                   ),
+                  RowItem.tap(
+                    'title3',
+                    'settings',
+                    titleStyle: const TextStyle(
+                        color: Colors.black45,
+                        fontSize: Dimens.MEDIUM,
+                        fontWeight: FontWeight.bold),
+                    descriptionStyle: const TextStyle(
+                        color: Colors.black38,
+                        fontSize: Dimens.MEDIUM,
+                        fontWeight: FontWeight.normal),
+                    textOverflow: TextOverflow.clip,
+                    onTap: () {
+                      Get.to(SettingsScreen());
+                    },
+                  )
                 ],
               ),
             ),
