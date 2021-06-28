@@ -104,7 +104,7 @@ class RowItem extends StatelessWidget {
             description,
             style: descriptionStyle,
             textAlign: TextAlign.end,
-            textOverflow: textOverflow,
+            textOverflow: textOverflow ?? TextOverflow.ellipsis,
             maxLines: maxLines,
             clickable: onTap != null,
             useDefaultDescriptionColor: true,
