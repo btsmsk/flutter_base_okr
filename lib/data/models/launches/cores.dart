@@ -1,38 +1,30 @@
 import 'package:json_annotation/json_annotation.dart';
 
 part 'cores.g.dart';
-
 @JsonSerializable()
 class Cores {
 
-  factory Cores.fromJson(Map<String, dynamic> json) => _$CoresFromJson(json);
-  Map<String, dynamic> toJson() => _$CoresToJson(this);
+	factory Cores.fromJson(Map<String, dynamic> json) => _$CoresFromJson(json);
+	Map<String, dynamic> toJson() => _$CoresToJson(this);
 
-  @JsonKey(name: "core_serial")
-  String? coreSerial;
+  String? core;
   int? flight;
-  int? block;
   bool? gridfins;
   bool? legs;
   bool? reused;
-  @JsonKey(name: "land_success")
-  bool? landSuccess;
-  @JsonKey(name: "landing_intent")
-  bool? landingIntent;
-  @JsonKey(name: "landing_type")
+  bool? landingAttempt;
+  bool? landingSuccess;
   String? landingType;
-  @JsonKey(name: "landing_vehicle")
-  String? landingVehicle;
+  String? landpad;
 
-  Cores(
-      {this.coreSerial,
-      this.flight,
-      this.block,
-      this.gridfins,
-      this.legs,
-      this.reused,
-      this.landSuccess,
-      this.landingIntent,
-      this.landingType,
-      this.landingVehicle});
+  Cores({
+      this.core, 
+      this.flight, 
+      this.gridfins, 
+      this.legs, 
+      this.reused, 
+      this.landingAttempt, 
+      this.landingSuccess, 
+      this.landingType, 
+      this.landpad});
 }

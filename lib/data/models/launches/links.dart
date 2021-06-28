@@ -1,47 +1,34 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'flickr.dart';
+import 'patch.dart';
+import 'reddit.dart';
+
 part 'links.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class Links {
-  factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
-  Map<String, dynamic> toJson() => _$LinksToJson(this);
+	factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
-  @JsonKey(name: "mission_patch")
-  String? missionPatch;
-  @JsonKey(name: "mission_patch_small")
-  String? missionPatchSmall;
-  @JsonKey(name: "reddit_campaign")
-  String? redditCampaign;
-  @JsonKey(name: "reddit_launch")
-  String? redditLaunch;
-  @JsonKey(name: "reddit_recovery")
-  String? redditRecovery;
-  @JsonKey(name: "reddit_media")
-  String? redditMedia;
+	Map<String, dynamic> toJson() => _$LinksToJson(this);
+
+  Patch? patch;
+  Reddit? reddit;
+  Flickr? flickr;
   String? presskit;
-  @JsonKey(name: "article_link")
-  String? articleLink;
-  String? wikipedia;
-  @JsonKey(name: "video_link")
-  String? videoLink;
-  @JsonKey(name: "youtube_id")
+  String? webcast;
   String? youtubeId;
-  @JsonKey(name: "flickr_images")
-  List<String>? flickrImages;
+  String? article;
+  String? wikipedia;
 
-  Links(
-      this.missionPatch,
-      this.missionPatchSmall,
-      this.redditCampaign,
-      this.redditLaunch,
-      this.redditRecovery,
-      this.redditMedia,
-      this.presskit,
-      this.articleLink,
-      this.wikipedia,
-      this.videoLink,
-      this.youtubeId,
-      this.flickrImages);
+  Links({
+      this.patch, 
+      this.reddit, 
+      this.flickr, 
+      this.presskit, 
+      this.webcast, 
+      this.youtubeId, 
+      this.article, 
+      this.wikipedia});
 }
