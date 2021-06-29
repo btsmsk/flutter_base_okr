@@ -2,7 +2,7 @@ class Endpoints {
   Endpoints._();
 
   // base url
-  static const baseUrl = 'https://api.spacexdata.com/v3';
+  static const baseUrl = 'https://api.spacexdata.com/v4';
 
   // vehicles endpoints
   static const getRockets = '$baseUrl/rockets';

@@ -25,14 +25,14 @@ class UpcomingListWidget extends StatelessWidget {
   Widget _buildListItem(Launches item) => ListTile(
       dense: true,
       title: Text(
-        '${item.rocket?.rocketName} - ${item.missionName}',
+        '${item.rocket} - ${item.name}',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         softWrap: false,
         style: const TextStyle(color: Colors.black45),
       ),
       subtitle: Text(
-        '${item.launchDateLocal}',
+        '${item.details}',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         softWrap: false,
