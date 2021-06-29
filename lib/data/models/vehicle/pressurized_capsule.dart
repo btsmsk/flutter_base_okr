@@ -1,8 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter_base_okr/data/models/vehicle/volume.dart';
 
-import 'payload_volume.dart';
-
 part 'pressurized_capsule.g.dart';
 
 @JsonSerializable()
