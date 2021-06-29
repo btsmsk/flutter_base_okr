@@ -21,13 +21,13 @@ class Company extends GetView<CompanyController> {
           title: 'About SpaceX',
           header: SwiperHeader(urls: List.from(_companyUrls)..shuffle()),
           children: [
-            _getInfoView(),
+            _getInfoView(context),
             // _AchievementsListView(),
           ],
         ),
       );
 
-  SliverToBoxAdapter _getInfoView() => SliverToBoxAdapter(
+  SliverToBoxAdapter _getInfoView(BuildContext context) => SliverToBoxAdapter(
           child: controller.obx(
         (state) {
           state as CompanyInfo;
@@ -39,31 +39,48 @@ class Company extends GetView<CompanyController> {
                 minimum: const EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: RowLayout(
                   children: <Widget>[
+                    RowLayout(
+                      space: 6,
+                      children: <Widget>[
+                        Text(
+                          state.name.toString(),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                        Text(
+                          '2002',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                                color: Theme.of(context).textTheme.caption!.color,
+                              ),
+                        ),
+                      ],
+                    ),
                     RowItem.text(
-                      'ceo',
+                      'CEO',
                       state.ceo,
                     ),
                     RowItem.text(
-                      'cto',
+                      'CTO',
                       state.cto,
                     ),
                     RowItem.text(
-                      'coo',
+                      'COO',
                       state.coo,
                     ),
                     RowItem.text(
-                      'valuation',
+                      'Valuation',
                       state.valuation.toString(),
                     ),
-                    /*RowItem.text(
-                        'location',
-                        state.getLocation,
-                      ),*/
                     RowItem.text(
-                      'employees',
+                      'Location',
+                      'Hawthorne, California',
+                    ),
+                    RowItem.text(
+                      'Employees',
                       state.employees.toString(),
                     ),
-                    Text(state.summary!),
+                    Text(state.summary.toString()),
                   ],
                 ),
               ),

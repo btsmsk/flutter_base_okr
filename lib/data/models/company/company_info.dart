@@ -4,9 +4,22 @@ part 'company_info.g.dart';
 
 @JsonSerializable()
 class CompanyInfo {
-  factory CompanyInfo.fromJson(Map<String, dynamic> json) => _$CompanyInfoFromJson(json);
-
-  Map<String, dynamic> toJson(CompanyInfo instance) => _$CompanyInfoToJson(this);
+  CompanyInfo(
+      {this.name,
+      this.founder,
+      this.founded,
+      this.employees,
+      this.vehicles,
+      this.launchSites,
+      this.testSites,
+      this.ceo,
+      this.cto,
+      this.coo,
+      this.ctoPropulsion,
+      this.valuation,
+      this.headquarters,
+      this.links,
+      this.summary});
 
   String? name;
   String? founder;
@@ -26,21 +39,13 @@ class CompanyInfo {
   Map<String, dynamic>? headquarters;
   Map<String, dynamic>? links;
   String? summary;
+  String? city;
+  String? state;
+  String? fullName;
+  String? details;
+  String? id;
 
-  CompanyInfo(
-      {this.name,
-      this.founder,
-      this.founded,
-      this.employees,
-      this.vehicles,
-      this.launchSites,
-      this.testSites,
-      this.ceo,
-      this.cto,
-      this.coo,
-      this.ctoPropulsion,
-      this.valuation,
-      this.headquarters,
-      this.links,
-      this.summary});
+  factory CompanyInfo.fromJson(Map<String, dynamic> json) => _$CompanyInfoFromJson(json);
+
+  Map<String, dynamic> toJson(CompanyInfo instance) => _$CompanyInfoToJson(this);
 }
