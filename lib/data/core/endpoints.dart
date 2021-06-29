@@ -15,5 +15,5 @@ class Endpoints {
   static const upcoming = '$baseUrl$launches/upcoming';
 
   // company
-  static const company = '$baseUrl/info';
+  static const company = '$baseUrl/company';
 }
