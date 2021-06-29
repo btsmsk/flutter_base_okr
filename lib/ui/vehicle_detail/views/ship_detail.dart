@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/data/models/vehicles/ship_vehicle.dart';
+import 'package:flutter_base_okr/data/models/vehicle/ship_vehicle.dart';
 import 'package:get/get.dart';
 
 class ShipDetail extends GetView {
@@ -12,7 +12,7 @@ class ShipDetail extends GetView {
       Scaffold(
         body: Center(
           child: Text(
-            ship?.shipName ?? '',
+            ship?.name ?? '',
               style: const TextStyle(fontSize: 20),
         ),
       )

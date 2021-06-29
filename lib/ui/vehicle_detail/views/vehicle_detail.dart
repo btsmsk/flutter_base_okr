@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_base_okr/data/models/vehicles/dragon_vehicle.dart';
-import 'package:flutter_base_okr/data/models/vehicles/rocket_vehicle.dart';
-import 'package:flutter_base_okr/data/models/vehicles/ship_vehicle.dart';
+import 'package:flutter_base_okr/data/models/vehicle/dragon_vehicle.dart';
+import 'package:flutter_base_okr/data/models/vehicle/rocket_vehicle.dart';
+import 'package:flutter_base_okr/data/models/vehicle/ship_vehicle.dart';
 import 'package:flutter_base_okr/ui/vehicle_detail/controllers/vehicle_detail_controller.dart';
 import 'package:flutter_base_okr/ui/vehicle_detail/views/rocket_detail.dart';
 import 'package:flutter_base_okr/ui/vehicle_detail/views/ship_detail.dart';

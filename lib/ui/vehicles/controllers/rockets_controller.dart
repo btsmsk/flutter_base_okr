@@ -1,8 +1,7 @@
-import 'package:flutter_base_okr/data/models/vehicles/vehicle.dart';
 import 'package:flutter_base_okr/domain/usecase/vehicles/get_rockets.dart';
 import 'package:get/get.dart';
 
-class RocketsController extends GetxController with StateMixin<List<Vehicle>> {
+class RocketsController extends GetxController with StateMixin {
   final GetRocketsUseCase rocketsUseCase;
 
   RocketsController({required this.rocketsUseCase});
