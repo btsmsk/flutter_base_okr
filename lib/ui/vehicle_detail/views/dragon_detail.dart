@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/data/models/vehicles/dragon_vehicle.dart';
+import 'package:flutter_base_okr/data/models/vehicle/dragon_vehicle.dart';
 import 'package:get/get.dart';
 
 class DragonDetail extends GetView {

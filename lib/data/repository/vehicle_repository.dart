@@ -1,4 +1,3 @@
-
 import 'package:flutter_base_okr/data/data_source/remote/vehicle/vehicle_remote_data_source.dart';
 
 class VehicleRepository {
@@ -6,19 +5,9 @@ class VehicleRepository {
 
   VehicleRepository({required this.vehicleRemoteDataSource});
 
-  getRockets() async {
-    return vehicleRemoteDataSource.getRockets();
-  }
+  getRockets() async => vehicleRemoteDataSource.getRockets();
 
-  getShips() async {
-    return vehicleRemoteDataSource.getShips();
-  }
+  getShips() async => vehicleRemoteDataSource.getShips();
 
-  getRoadster() async {
-    return vehicleRemoteDataSource.getRoadsters();
-  }
-
-  getDragons() async {
-    return vehicleRemoteDataSource.getDragons();
-  }
+  getDragons() async => vehicleRemoteDataSource.getDragons();
 }
