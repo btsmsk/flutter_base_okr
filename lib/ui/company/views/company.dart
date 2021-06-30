@@ -108,6 +108,7 @@ class Company extends GetView<CompanyController> {
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   primary: false,
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) => AchievementCell(
                     achievement: controller.achievements?.elementAt(index),
                     index: index,

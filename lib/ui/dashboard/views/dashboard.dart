@@ -15,7 +15,7 @@ class Dashboard extends GetView {
   @override
   Widget build(BuildContext context) => GetBuilder<DashboardController>(
         builder: (controller) => Scaffold(
-              appBar: AppBar(title: const Text('Tabs Demo'), elevation: Dimens.NONE),
+              appBar: AppBar(title: const Text('Flutter OKR'), elevation: Dimens.NONE),
               body: tabs[controller.currentIndex],
               bottomNavigationBar: BottomNavigationBar(
                 backgroundColor: Colors.white,
