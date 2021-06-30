@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base_okr/data/models/company/company_info.dart';
 import 'package:flutter_base_okr/ui/company/controllers/company_controller.dart';
 import 'package:flutter_base_okr/ui/widgets/header_swiper.dart';
+import 'package:flutter_base_okr/ui/widgets/header_text.dart';
+import 'package:flutter_base_okr/ui/widgets/list/achievement_cell.dart';
 import 'package:flutter_base_okr/ui/widgets/row/row_item.dart';
 import 'package:flutter_base_okr/ui/widgets/row/row_layout.dart';
 import 'package:flutter_base_okr/ui/widgets/sliver_page.dart';
@@ -22,7 +24,7 @@ class Company extends GetView<CompanyController> {
           header: SwiperHeader(urls: List.from(_companyUrls)..shuffle()),
           children: [
             _getInfoView(context),
-            // _AchievementsListView(),
+            _getAchievementsListView(),
           ],
         ),
       );
@@ -96,4 +98,23 @@ class Company extends GetView<CompanyController> {
           ),
         ),
       ));
+
+  SliverToBoxAdapter _getAchievementsListView() => SliverToBoxAdapter(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HeaderText('Achievements', head: true),
+            Obx(() => ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  primary: false,
+                  itemBuilder: (context, index) => AchievementCell(
+                    achievement: controller.achievements?.elementAt(index),
+                    index: index,
+                  ),
+                  itemCount: controller.achievements?.length ?? 0,
+                )),
+          ],
+        ),
+      );
 }

@@ -6,7 +6,7 @@ import 'action_button.dart';
 
 class ListCell extends StatelessWidget {
   final Widget? leading, trailing;
-  final String? title, subtitle;
+  final String? title, subtitle, body;
   final VoidCallback? onTap;
   final EdgeInsets? contentPadding;
   final bool? dense;
@@ -22,6 +22,7 @@ class ListCell extends StatelessWidget {
     this.contentPadding,
     this.dense = false,
     this.actions,
+    this.body,
   }) : super(key: key);
 
   factory ListCell.icon({
@@ -58,7 +59,7 @@ class ListCell extends StatelessWidget {
             if (actions != null && actions!.isNotEmpty)
               const SizedBox(height: Dimens.SIZE_16, width: Dimens.SIZE_8),
             Text(
-              title!,
+              title ?? '',
               style: Theme.of(context).textTheme.subtitle1?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -95,7 +96,8 @@ class ListCell extends StatelessWidget {
             if (onTap != null && trailing == null)
               const Icon(Icons.chevron_right)
             else
-              trailing!,
+              trailing ?? const SizedBox.shrink(),
+            if (body != null) Text(body!)
           ],
         ),
         contentPadding: contentPadding,
