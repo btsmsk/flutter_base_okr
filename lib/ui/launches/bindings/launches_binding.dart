@@ -17,14 +17,7 @@ class LaunchesBinding implements Bindings {
     Get.put<LaunchesRepository>(LaunchesRepository(
         upcomingRemoteDataSource: UpcomingRemoteDataSource(),
         specificLaunchRemoteDataSource: SpecificLaunchRemoteDataSource()));
-
     Get.put<GetUpcomingLaunchesUseCase>(GetUpcomingLaunchesUseCase(repository: Get.find()));
-    Get.put<GetSpecificLaunchUseCase>(GetSpecificLaunchUseCase(repository: Get.find()));
-    Get.put<GetSpecificRocketUseCase>(GetSpecificRocketUseCase(repository: Get.find()));
     Get.put<UpcomingController>(UpcomingController(upcomingLaunches: Get.find()));
-    Get.put<UpcomingDetailsController>(UpcomingDetailsController(
-        specificLaunchUseCase: Get.find(),
-        specificRocketUseCase: Get.find()
-    ));
   }
 }

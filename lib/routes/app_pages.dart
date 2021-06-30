@@ -19,7 +19,7 @@ class AppPages {
         binding: VehicleDetailBinding()),
     GetPage(
         name: Routes.UPCOMING_DETAIL,
-        page: () => UpcomingDetails(Get.arguments),
+        page: () => UpcomingDetails(),
         binding: UpcomingDetailsBinding())
   ];
 }

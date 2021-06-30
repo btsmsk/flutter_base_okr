@@ -7,6 +7,8 @@ import 'package:flutter_base_okr/domain/usecase/vehicles/get_specific_rocket_use
 import 'package:get/get.dart';
 
 class UpcomingDetailsController extends GetxController with StateMixin {
+  String launchId = Get.arguments;
+
   launch.GetSpecificLaunchUseCase specificLaunchUseCase;
   rocket.GetSpecificRocketUseCase specificRocketUseCase;
 
@@ -14,14 +16,20 @@ class UpcomingDetailsController extends GetxController with StateMixin {
       {required this.specificLaunchUseCase,
       required this.specificRocketUseCase});
 
+  @override
+  void onReady() {
+    super.onReady();
+    getSpecificLaunch(launchId);
+  }
+
   Future getSpecificLaunch(String id) async {
     change([], status: RxStatus.loading());
 
     try {
       final launchResult =
           await specificLaunchUseCase.execute(launch.Params(id: id));
-      final rocketResult =
-          await specificRocketUseCase.execute(rocket.Params(id: launchResult.rocket ?? ''));
+      final rocketResult = await specificRocketUseCase
+          .execute(rocket.Params(id: launchResult.rocket ?? ''));
       change(LaunchDetailsUiModel(launch: launchResult, rocket: rocketResult),
           status: RxStatus.success());
     } catch (e) {

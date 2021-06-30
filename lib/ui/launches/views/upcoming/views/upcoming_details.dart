@@ -17,14 +17,9 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 
 class UpcomingDetails extends GetView<UpcomingDetailsController> {
-  final String id;
-
-  const UpcomingDetails(this.id);
 
   @override
-  Widget build(BuildContext context) {
-    controller.getSpecificLaunch(id);
-    return Container(
+  Widget build(BuildContext context) => Container(
         child: controller.obx((state) {
       state as LaunchDetailsUiModel;
       return Scaffold(
@@ -71,15 +66,16 @@ class UpcomingDetails extends GetView<UpcomingDetailsController> {
                 color: Colors.black45,
               ),
             )));
-  }
 
   Widget _missionCard(BuildContext context, Launches launch) => CardCell.header(
         context,
         title: launch.name,
-        leading: ClipRRect(
+        leading: Padding(
+          padding: EdgeInsets.all(Dimens.SIZE_8),
+          child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(Dimens.SIZE_8)),
           child: ImageLeading.load(launch.links?.patch?.large, Dimens.SIZE_72),
-        ),
+        ),),
         subtitle: [
           Row(
             children: [
