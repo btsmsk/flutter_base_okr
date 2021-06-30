@@ -3,6 +3,7 @@ import 'package:flutter_base_okr/data/models/launches/launches.dart';
 import 'package:get/get.dart';
 
 class UpcomingRemoteDataSource extends GetConnect {
+
   Future<List<Launches>> getUpcomingLaunches() async {
     List<Launches> launches = <Launches>[];
 

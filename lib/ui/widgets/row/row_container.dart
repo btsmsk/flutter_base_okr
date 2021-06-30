@@ -13,7 +13,7 @@ class RowContainer extends StatelessWidget {
 
   const RowContainer({
     required this.children,
-    this.padding = const EdgeInsets.all(Dimens.SMALL),
+    this.padding = const EdgeInsets.all(Dimens.SIZE_8),
     this.space = 12,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.min,

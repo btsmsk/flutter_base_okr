@@ -9,12 +9,14 @@ class SliverBar extends StatelessWidget {
   final Widget? header;
   final num height;
   final List<Widget>? actions;
+  final bool? floating;
 
   const SliverBar({
     this.title = '',
     this.header,
     this.height = heightRatio,
     this.actions,
+    this.floating
   });
 
   @override
@@ -22,6 +24,7 @@ class SliverBar extends StatelessWidget {
         expandedHeight: MediaQuery.of(context).size.height * height,
         actions: actions,
         pinned: true,
+        floating: floating ?? false,
         flexibleSpace: FlexibleSpaceBar(
           centerTitle: true,
           title: ConstrainedBox(
