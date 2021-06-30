@@ -39,8 +39,8 @@ class Dashboard extends GetView {
                             ? Colors.black38
                             : Colors.black87,
                         colorBlendMode: BlendMode.srcATop,
-                        width: Dimens.LARGE,
-                        height: Dimens.LARGE),
+                        width: Dimens.SIZE_24,
+                        height: Dimens.SIZE_24),
                   ),
                   const BottomNavigationBarItem(
                     label: "Launches",

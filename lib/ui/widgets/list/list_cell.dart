@@ -36,7 +36,7 @@ class ListCell extends StatelessWidget {
   }) =>
       ListCell(
         key: key,
-        leading: Icon(icon, size: Dimens.XLARGE),
+        leading: Icon(icon, size: Dimens.SIZE_26),
         trailing: trailing,
         title: title,
         subtitle: subtitle,
@@ -49,14 +49,14 @@ class ListCell extends StatelessWidget {
   Widget build(BuildContext context) => ListTile(
         leading: Padding(
           padding:
-              const EdgeInsets.only(top: Dimens.XSMALL, bottom: Dimens.XSMALL),
+              const EdgeInsets.only(top: Dimens.SIZE_4, bottom: Dimens.SIZE_4),
           child: leading
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             if (actions != null && actions!.isNotEmpty)
-              const SizedBox(height: Dimens.MEDIUM, width: Dimens.SMALL),
+              const SizedBox(height: Dimens.SIZE_16, width: Dimens.SIZE_8),
             Text(
               title!,
               style: Theme.of(context).textTheme.subtitle1?.copyWith(
@@ -66,7 +66,7 @@ class ListCell extends StatelessWidget {
               maxLines: 1,
             ),
             if (subtitle != null)
-              const SizedBox(height: Dimens.SMALL, width: Dimens.SMALL),
+              const SizedBox(height: Dimens.SIZE_8, width: Dimens.SIZE_8),
           ],
         ),
         subtitle: Column(
@@ -81,7 +81,7 @@ class ListCell extends StatelessWidget {
             if (actions != null && actions!.isNotEmpty)
               Padding(
                   padding: const EdgeInsets.only(
-                      top: Dimens.XSMALL, bottom: Dimens.XSMALL),
+                      top: Dimens.SIZE_4, bottom: Dimens.SIZE_4),
                   // ignore: avoid_unnecessary_containers
                   child: Container(
                       child: Row(

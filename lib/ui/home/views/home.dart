@@ -23,32 +23,32 @@ class HomeScreen extends GetView<HomeController> {
                     'description',
                     titleStyle: const TextStyle(
                         color: Colors.black45,
-                        fontSize: Dimens.MEDIUM,
+                        fontSize: Dimens.SIZE_16,
                         fontWeight: FontWeight.bold),
                     descriptionStyle: const TextStyle(
                         color: Colors.black38,
-                        fontSize: Dimens.MEDIUM,
+                        fontSize: Dimens.SIZE_16,
                         fontWeight: FontWeight.normal),
                     textOverflow: TextOverflow.clip,
                     startIcon: const IconProperties(
                         icon: Icons.cancel,
                         color: Colors.red,
-                        iconSize: Dimens.XXLARGE),
+                        iconSize: Dimens.SIZE_32),
                     endIcon: const IconProperties(
                         icon: Icons.forward,
                         color: Colors.blue,
-                        iconSize: Dimens.XXLARGE),
+                        iconSize: Dimens.SIZE_32),
                   ),
                   RowItem.text(
                     'title2',
                     'description2',
                     titleStyle: const TextStyle(
                         color: Colors.black45,
-                        fontSize: Dimens.MEDIUM,
+                        fontSize: Dimens.SIZE_16,
                         fontWeight: FontWeight.bold),
                     descriptionStyle: const TextStyle(
                         color: Colors.black38,
-                        fontSize: Dimens.MEDIUM,
+                        fontSize: Dimens.SIZE_16,
                         fontWeight: FontWeight.normal),
                     textOverflow: TextOverflow.ellipsis,
                   ),

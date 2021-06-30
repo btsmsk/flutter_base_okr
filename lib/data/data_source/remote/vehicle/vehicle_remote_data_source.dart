@@ -22,6 +22,21 @@ class VehicleRemoteDataSource extends GetConnect {
     return rockets;
   }
 
+  Future<RocketVehicle> getSpecificRocket(String id) async {
+    late RocketVehicle rocket;
+
+    final response =
+    await get<RocketVehicle>("${Endpoints.getRockets}/$id", decoder: (body) {
+      rocket = RocketVehicle.fromJson(body);
+      return rocket;
+    });
+
+    if (response.hasError) {
+      throw Exception('Api Error!');
+    }
+    return rocket;
+  }
+
   Future<List<ShipVehicle>> getShips() async {
     List<ShipVehicle> ships = <ShipVehicle>[];
 
