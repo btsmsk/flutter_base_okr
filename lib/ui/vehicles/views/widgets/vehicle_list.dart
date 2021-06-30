@@ -18,11 +18,11 @@ class VehicleListWidget extends StatelessWidget {
   Widget build(BuildContext context) => vehicleList.isNotEmpty
       ? Padding(
           padding:
-              const EdgeInsets.only(left: Dimens.SMALL, right: Dimens.SMALL),
+              const EdgeInsets.only(left: Dimens.SIZE_8, right: Dimens.SIZE_8),
           child: ListView.separated(
             itemCount: vehicleList.length,
             separatorBuilder: (context, position) =>
-                const SizedBox(height: Dimens.MEDIUM),
+                const SizedBox(height: Dimens.SIZE_16),
             itemBuilder: (context, position) =>
                 _buildListItem(vehicleList.elementAt(position)),
           ),
@@ -34,7 +34,7 @@ class VehicleListWidget extends StatelessWidget {
         );
 
   Widget _buildListItem(Vehicle vehicle) => Card(
-        elevation: Dimens.SMALL,
+        elevation: Dimens.SIZE_8,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Dimens.DEFAULT_CARD_RADIUS)),
         child: Column(
@@ -42,8 +42,8 @@ class VehicleListWidget extends StatelessWidget {
             ListCell(
               leading: ClipRRect(
                 borderRadius:
-                    const BorderRadius.all(Radius.circular(Dimens.SMALL)),
-                child: ImageLeading.small(vehicle.photos?.first),
+                    const BorderRadius.all(Radius.circular(Dimens.SIZE_8)),
+                child: ImageLeading.load(vehicle.photos?.first, Dimens.SIZE_40),
               ),
               title: vehicle.name,
               subtitle: vehicle.dateTime != null

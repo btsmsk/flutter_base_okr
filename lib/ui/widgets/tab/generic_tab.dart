@@ -28,15 +28,15 @@ class GenericTab extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(Dimens.TABHEIGHT),
           child: Container(
-            padding: const EdgeInsets.only(top: Dimens.SMALL),
+            padding: const EdgeInsets.only(top: Dimens.SIZE_8),
             color: Colors.white,
             child: TabBar(
-              indicatorPadding: EdgeInsets.symmetric(vertical: Dimens.SMALL),
+              indicatorPadding: EdgeInsets.symmetric(vertical: Dimens.SIZE_8),
               indicatorWeight: 10,
               indicator: const UnderlineTabIndicator(
                   borderSide:
                       // ignore: prefer_const_constructors
-                      BorderSide(width: Dimens.XXSMALL, color: Colors.red)),
+                      BorderSide(width: Dimens.SIZE_2, color: Colors.red)),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: Colors.black38,
               labelColor: Colors.black87,
@@ -58,16 +58,16 @@ class Tab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-      padding: const EdgeInsets.only(bottom: Dimens.XSMALL),
+      padding: const EdgeInsets.only(bottom: Dimens.SIZE_4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           if(icon != null) Padding(
               padding: const EdgeInsets.only(
-                  top: Dimens.XSMALL,
-                  right: Dimens.SMALL,
-                  bottom: Dimens.SMALL),
+                  top: Dimens.SIZE_4,
+                  right: Dimens.SIZE_8,
+                  bottom: Dimens.SIZE_8),
               child: Icon(icon)),
           Text(
             title,
