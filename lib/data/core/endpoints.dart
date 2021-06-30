@@ -16,4 +16,5 @@ class Endpoints {
 
   // company
   static const company = '$baseUrl/company';
+  static const achievements = '$baseUrl/history';
 }
