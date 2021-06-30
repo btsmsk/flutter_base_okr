@@ -36,10 +36,10 @@ class ActionButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(Dimens.DEFAULT_CARD_RADIUS)),
           child: Padding(
             padding: const EdgeInsets.only(
-                left: Dimens.SMALL,
-                right: Dimens.SMALL,
-                top: Dimens.XXSMALL,
-                bottom: Dimens.XXSMALL),
+                left: Dimens.SIZE_8,
+                right: Dimens.SIZE_8,
+                top: Dimens.SIZE_2,
+                bottom: Dimens.SIZE_2),
             child: InkWell(
               onTap: onTap,
               child: Row(
@@ -48,7 +48,7 @@ class ActionButton extends StatelessWidget {
                   icon,
                   if (label != null)
                     Padding(
-                      padding: const EdgeInsets.only(left: Dimens.XSMALL),
+                      padding: const EdgeInsets.only(left: Dimens.SIZE_4),
                       child: Text(
                         label!,
                         style: TextStyle(

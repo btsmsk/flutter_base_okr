@@ -10,13 +10,20 @@ class Dimens {
 
   static const double DEFAULT_CARD_RADIUS = 12;
 
-  static const double XXSMALL = 2;
-  static const double XSMALL = 4;
-  static const double SMALL = 8;
-  static const double MEDIUM = 16;
-  static const double LARGE = 24;
-  static const double XLARGE = 26;
-  static const double XXLARGE = 32;
-  static const double XXXLARGE = 40;
-
+  static const double SIZE_2 = 2;
+  static const double SIZE_4 = 4;
+  static const double SIZE_8 = 8;
+  static const double SIZE_12 = 12;
+  static const double SIZE_14 = 14;
+  static const double SIZE_16 = 16;
+  static const double SIZE_18 = 18;
+  static const double SIZE_20 = 20;
+  static const double SIZE_24 = 24;
+  static const double SIZE_26 = 26;
+  static const double SIZE_32 = 32;
+  static const double SIZE_36 = 36;
+  static const double SIZE_40 = 40;
+  static const double SIZE_48 = 48;
+  static const double SIZE_72 = 72;
+  static const double SIZE_80 = 80;
 }

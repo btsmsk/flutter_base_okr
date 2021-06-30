@@ -174,7 +174,7 @@ class IconProperties {
   const IconProperties(
       {required this.icon,
       required this.color,
-      this.iconSize = Dimens.MEDIUM,
+      this.iconSize = Dimens.SIZE_16,
       this.padding =
-          const EdgeInsets.only(left: Dimens.XSMALL, right: Dimens.XSMALL)});
+          const EdgeInsets.only(left: Dimens.SIZE_4, right: Dimens.SIZE_4)});
 }
