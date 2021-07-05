@@ -2,6 +2,7 @@ import 'package:flutter_base_okr/data/data_source/remote/launch/specific_launch_
 import 'package:flutter_base_okr/data/data_source/remote/launch/upcoming_remote_data_source.dart';
 import 'package:flutter_base_okr/data/models/launches/launches.dart';
 
+
 class LaunchesRepository {
   final UpcomingRemoteDataSource upcomingRemoteDataSource;
   final SpecificLaunchRemoteDataSource specificLaunchRemoteDataSource;
@@ -10,9 +11,8 @@ class LaunchesRepository {
       {required this.upcomingRemoteDataSource,
       required this.specificLaunchRemoteDataSource});
 
-  Future<List<Launches>> getUpcomingLaunches() async {
-    return upcomingRemoteDataSource.getUpcomingLaunches();
-  }
+  Future<List<Launches>> getUpcomingLaunches() async =>
+      upcomingRemoteDataSource.getUpcomingLaunches();
 
   Future<Launches> getSpecificLaunch(String id) async =>
       specificLaunchRemoteDataSource.getSpecificLaunches(id);

@@ -1,4 +1,4 @@
-import 'package:flutter_base_okr/data/core/endpoints.dart';
+import 'package:flutter_base_okr/data/core/network/endpoints.dart';
 import 'package:flutter_base_okr/data/models/launches/launches.dart';
 import 'package:get/get.dart';
 
