@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter_base_okr/data/core/endpoints.dart';
+import 'package:flutter_base_okr/data/core/network/endpoints.dart';
 import 'package:flutter_base_okr/data/models/company/company_info.dart';
 import 'package:get/get.dart';
 

@@ -14,9 +14,11 @@ class VehiclesBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<VehicleRepository>(() =>
         VehicleRepository(vehicleRemoteDataSource: VehicleRemoteDataSource()));
-    Get.lazyPut<GetRocketsUseCase>(() => GetRocketsUseCase(repository: Get.find()));
+    Get.lazyPut<GetRocketsUseCase>(
+        () => GetRocketsUseCase(repository: Get.find()));
     Get.lazyPut<GetShipsUseCase>(() => GetShipsUseCase(repository: Get.find()));
-    Get.lazyPut<GetDragonsUseCase>(() => GetDragonsUseCase(repository: Get.find()));
+    Get.lazyPut<GetDragonsUseCase>(
+        () => GetDragonsUseCase(repository: Get.find()));
     Get.put<VehiclesController>(VehiclesController());
     Get.put<RocketsController>(RocketsController(rocketsUseCase: Get.find()));
     Get.put<ShipsController>(ShipsController(shipsUseCase: Get.find()));

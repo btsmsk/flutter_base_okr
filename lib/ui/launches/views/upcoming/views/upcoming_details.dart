@@ -17,55 +17,56 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 
 class UpcomingDetails extends GetView<UpcomingDetailsController> {
-
   @override
   Widget build(BuildContext context) => Container(
-        child: controller.obx((state) {
-      state as LaunchDetailsUiModel;
-      return Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverBar(
-              title: state.launch.name,
-              floating: true,
-              header: SwiperHeader(
-                  urls: state.rocket.flickrImages != null
-                      ? state.rocket.flickrImages!
-                      : []),
-              actions: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.share),
-                  onPressed: () => Share.share(
-                      'rocketName: ${state.launch.links?.wikipedia}}'),
-                  tooltip: 'Share',
-                )
-              ],
-            ),
-            SliverSafeArea(
-              top: false,
-              sliver: SliverToBoxAdapter(
-                  child: RowContainer(
-                children: [
-                  _missionCard(context, state.launch),
-                  _buildGeneralInfoCard(context, state.rocket),
-                  _specsCard(context, state.rocket),
-                  _stages(context, state.rocket),
-                  if (state.rocket.engines != null) _enginesCard(context, state.rocket),
+          child: controller.obx((state) {
+        state as LaunchDetailsUiModel;
+        return Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              SliverBar(
+                title: state.launch.name,
+                floating: true,
+                header: SwiperHeader(
+                    urls: state.rocket.flickrImages != null
+                        ? state.rocket.flickrImages!
+                        : []),
+                actions: <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.share),
+                    onPressed: () => Share.share(
+                        'rocketName: ${state.launch.links?.wikipedia}}'),
+                    tooltip: 'Share',
+                  ),
                 ],
-              )),
-            ),
-          ],
-        ),
-      );
-    },
-            onError: (error) => Center(
-                  child: Text(error.toString()),
-                ),
-            onLoading: const Center(
-              child: CircularProgressIndicator(
-                color: Colors.black45,
               ),
-            )));
+              SliverSafeArea(
+                top: false,
+                sliver: SliverToBoxAdapter(
+                  child: RowContainer(
+                    children: [
+                      _missionCard(context, state.launch),
+                      _buildGeneralInfoCard(context, state.rocket),
+                      _specsCard(context, state.rocket),
+                      _stages(context, state.rocket),
+                      if (state.rocket.engines != null)
+                        _enginesCard(context, state.rocket),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+              onError: (error) => Center(
+                    child: Text(error.toString()),
+                  ),
+              onLoading: const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.black45,
+                ),
+              )));
 
   Widget _missionCard(BuildContext context, Launches launch) => CardCell.header(
         context,
@@ -73,9 +74,12 @@ class UpcomingDetails extends GetView<UpcomingDetailsController> {
         leading: Padding(
           padding: EdgeInsets.all(Dimens.SIZE_8),
           child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(Dimens.SIZE_8)),
-          child: ImageLeading.load(launch.links?.patch?.large, Dimens.SIZE_72),
-        ),),
+            borderRadius:
+                const BorderRadius.all(Radius.circular(Dimens.SIZE_8)),
+            child:
+                ImageLeading.load(launch.links?.patch?.large, Dimens.SIZE_72),
+          ),
+        ),
         subtitle: [
           Row(
             children: [

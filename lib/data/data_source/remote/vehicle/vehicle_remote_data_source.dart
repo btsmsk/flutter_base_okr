@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter_base_okr/data/core/endpoints.dart';
+import 'package:flutter_base_okr/data/core/network/endpoints.dart';
 import 'package:flutter_base_okr/data/models/vehicle/dragon_vehicle.dart';
 import 'package:flutter_base_okr/data/models/vehicle/rocket_vehicle.dart';
 import 'package:flutter_base_okr/data/models/vehicle/ship_vehicle.dart';

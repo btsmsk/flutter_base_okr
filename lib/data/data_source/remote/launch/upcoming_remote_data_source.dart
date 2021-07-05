@@ -1,21 +1,16 @@
-import 'package:flutter_base_okr/data/core/endpoints.dart';
+import 'package:flutter_base_okr/data/core/network/endpoints.dart';
+import 'package:flutter_base_okr/data/core/network/http_client.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_base_okr/data/models/api_response.dart';
 import 'package:flutter_base_okr/data/models/launches/launches.dart';
-import 'package:get/get.dart';
 
-class UpcomingRemoteDataSource extends GetConnect {
+class UpcomingRemoteDataSource {
+  HttpClient dioClient;
+
+  UpcomingRemoteDataSource({required this.dioClient});
 
   Future<List<Launches>> getUpcomingLaunches() async {
-    List<Launches> launches = <Launches>[];
-
-    final response =
-        await get<List<Launches>>(Endpoints.upcoming, decoder: (body) {
-      launches = Launches.getLaunchModelList(body);
-      return launches;
-    });
-
-    if (response.hasError) {
-      throw Exception('Api Error!');
-    }
-    return launches;
+    final response = await dioClient.dio.get(Endpoints.upcoming);
+    return Launches.getLaunchModelList(response.data);
   }
 }

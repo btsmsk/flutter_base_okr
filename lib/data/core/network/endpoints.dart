@@ -12,7 +12,7 @@ class Endpoints {
 
   // launches
   static const launches = '/launches';
-  static const upcoming = '$baseUrl$launches/upcoming';
+  static const upcoming = '$launches/upcoming';
   static const specific_launch = '$baseUrl$launches/';
 
   // company

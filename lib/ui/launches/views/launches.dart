@@ -9,7 +9,7 @@ import 'upcoming/views/upcoming.dart';
 class Launches extends GetView {
   @override
   Widget build(BuildContext context) => GetBuilder<LaunchesController>(
-        builder: (controller) => GenericTab(tabItems: [
+        builder: (controller) =>  GenericTab(tabItems: [
               TabItem(title: "Upcoming",
                   icon: Icons.timer,
                   widget: Upcoming()

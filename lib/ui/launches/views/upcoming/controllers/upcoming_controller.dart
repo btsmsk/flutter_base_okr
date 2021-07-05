@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_base_okr/domain/usecase/GetUseCase.dart';
 import 'package:flutter_base_okr/domain/usecase/launches/upcoming/get_upcoming_launches_use_case.dart';
 import 'package:get/get.dart';
@@ -15,12 +16,13 @@ class UpcomingController extends GetxController with StateMixin {
 
   Future getUpcomingLaunches() async {
     change([], status: RxStatus.loading());
+    final result = upcomingLaunches.execute(None());
 
-    try {
-      var result = await upcomingLaunches.execute(None());
-      change(result, status: RxStatus.success());
-    } catch (e) {
-      change([], status: RxStatus.error(e.toString()));
-    }
+    result
+        .then((value) => {change(value, status: RxStatus.success())})
+        .onError<DioError>((error, stackTrace) =>
+    {
+      change(error, status: RxStatus.error())
+    });
   }
 }
