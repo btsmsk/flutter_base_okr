@@ -17,38 +17,37 @@ class RocketDetail extends GetView {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverBar(
-              title: rocket?.name,
-              header: SwiperHeader(
-                urls: rocket?.flickrImages ?? [],
-              ),
-              actions: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.share),
-                  onPressed: () => Share.share('rocketName: ${rocket?.name}'),
-                  tooltip: 'Share',
-                )
-              ],
+          body: CustomScrollView(
+        slivers: [
+          SliverBar(
+            title: rocket?.name,
+            header: SwiperHeader(
+              urls: rocket?.flickrImages ?? [],
             ),
-            SliverSafeArea(
-              top: false,
-              sliver: SliverToBoxAdapter(
-                child: RowContainer(
-                  children: [
-                    _buildGeneralInfoCard(context),
-                    _specsCard(context),
-                    if (rocket?.payloadWeights != null) _payloadsCard(context),
-                    _stages(context),
-                    if (rocket?.engines != null) _enginesCard(context),
-                  ],
-                ),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.share),
+                onPressed: () => Share.share('rocketName: ${rocket?.name}'),
+                tooltip: 'Share',
               ),
-            )
-          ],
-        ),
-      );
+            ],
+          ),
+          SliverSafeArea(
+            top: false,
+            sliver: SliverToBoxAdapter(
+              child: RowContainer(
+                children: [
+                  _buildGeneralInfoCard(context),
+                  _specsCard(context),
+                  if (rocket?.payloadWeights != null) _payloadsCard(context),
+                  _stages(context),
+                  if (rocket?.engines != null) _enginesCard(context),
+                ],
+              ),
+            ),
+          )
+        ],
+      ));
 
   Widget _buildGeneralInfoCard(BuildContext context) => CardCell.body(
         context,

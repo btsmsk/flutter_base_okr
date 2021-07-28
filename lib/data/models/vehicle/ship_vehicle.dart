@@ -1,7 +1,7 @@
+import 'package:flutter_base_okr/data/models/launches/launches.dart';
 import 'package:flutter_base_okr/data/models/vehicle/mass.dart';
 import 'package:flutter_base_okr/data/models/vehicle/vehicle.dart';
-import 'package:flutter_base_okr/utils/date.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_base_okr/utils/number.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'ship_vehicle.g.dart';
@@ -19,6 +19,8 @@ class ShipVehicle extends Vehicle {
   @JsonKey(defaultValue: 'legacy_id')
   String? legacyId;
   String? model;
+  @JsonKey(name: 'type')
+  String? usage;
   List<String>? roles;
   num? imo;
   num? mmsi;
@@ -52,6 +54,7 @@ class ShipVehicle extends Vehicle {
   ShipVehicle(
       {this.legacyId,
       this.model,
+      this.usage,
       this.roles,
       this.imo,
       this.mmsi,
@@ -82,4 +85,14 @@ class ShipVehicle extends Vehicle {
             active: active,
             dateTime: null,
             photos: image != null ? [image] : null);
+
+  bool get hasSeveralRoles => roles?.length.compareTo(1) == 1;
+
+  String getShipWeightKg() =>
+      massKg != null ? '${formatDecimal.format(massKg)} kg' : '';
+
+  String getCurrentSpeed() =>
+      speedKn != null ? '${formatDecimal.format(speedKn)} kN' : 'Unknown';
+
+  String getStatus() => status != null ? status! : 'Unknown';
 }

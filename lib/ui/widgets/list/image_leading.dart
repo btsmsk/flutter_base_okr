@@ -27,8 +27,7 @@ class ImageLeading extends StatelessWidget {
           child: url != null
               ? CachedNetworkImage(
                   imageUrl: url!,
-                  fit: BoxFit.fitHeight,
-                  imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet)
+                  fit: BoxFit.fitHeight)
               : SvgPicture.asset(
                   'assets/icons/patch.svg',
                   colorBlendMode: BlendMode.srcATop,

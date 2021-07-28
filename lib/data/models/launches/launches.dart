@@ -119,4 +119,6 @@ class Launches {
         return "${getTentativeDate}";
     }
   }
+
+  String get formattedflightNumber => 'Mission #${flightNumber.toString()}';
 }

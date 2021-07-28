@@ -1,3 +1,4 @@
+import 'package:flutter_base_okr/utils/number.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'thrust.dart';
 
@@ -27,5 +28,13 @@ class Thrusters {
       this.fuel2, 
       this.isp, 
       this.thrust});
+
+  String getEngineThrust() => thrust?.kN != null
+      ? '${formatDecimal.format(thrust?.kN)} kN'
+      : '';
+
+  String getIsp() => isp != null
+      ? '${formatDecimal.format(isp)} s'
+      : '';
 
 }

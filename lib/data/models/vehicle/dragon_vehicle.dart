@@ -1,6 +1,7 @@
 import 'package:flutter_base_okr/data/models/vehicle/pressurized_capsule.dart';
 import 'package:flutter_base_okr/data/models/vehicle/vehicle.dart';
 import 'package:flutter_base_okr/data/models/vehicle/volume.dart';
+import 'package:flutter_base_okr/utils/number.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'diameter.dart';
@@ -44,15 +45,15 @@ class DragonVehicle extends Vehicle {
   String? name;
   bool? active;
   @JsonKey(name: 'crew_capacity')
-  int? crewCapacity;
+  num? crewCapacity;
   @JsonKey(name: 'sidewall_angle_deg')
-  int? sidewallAngleDeg;
+  num? sidewallAngleDeg;
   @JsonKey(name: 'orbit_duration_yr')
-  int? orbitDurationYr;
+  num? orbitDurationYr;
   @JsonKey(name: 'dry_mass_kg')
-  int? dryMassKg;
+  num? dryMassKg;
   @JsonKey(name: 'dry_mass_lb')
-  int? dryMassLb;
+  num? dryMassLb;
   List<Thrusters>? thrusters;
   String? wikipedia;
   String? description;
@@ -94,4 +95,20 @@ class DragonVehicle extends Vehicle {
             dateTime:
                 firstFlight != null ? DateTime.tryParse(firstFlight) : null,
             photos: flickrImages);
+
+  bool get isCrewEnabled => crewCapacity != 0;
+
+  String getCrew() =>
+      isCrewEnabled ? 'people ${crewCapacity.toString()}' : 'No people';
+
+  String getLaunchPayload() => launchPayloadMass != null ? '${formatDecimal.format(launchPayloadMass?.kg)} kg' : '';
+
+  String getReturnPayload() => returnPayloadMass != null ? '${formatDecimal.format(returnPayloadMass?.kg)} kg' : '';
+
+  String getDragonHeight() => '${formatDecimal.format(height?.meters)} m';
+
+  String getDragonDiameter() => '${formatDecimal.format(diameter?.meters)} m';
+
+  String getDragonDryWeight() => '${formatDecimal.format(dryMassKg)} kg';
+
 }

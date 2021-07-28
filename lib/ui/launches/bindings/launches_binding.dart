@@ -11,9 +11,9 @@ class LaunchesBinding implements Bindings {
   void dependencies() {
     // Http Client
     Get.put<LaunchesController>(LaunchesController());
-    Get.lazyPut<LaunchesRepository>(() => LaunchesRepository(
+    Get.put<LaunchesRepository>(LaunchesRepository(
         upcomingRemoteDataSource:
-            UpcomingRemoteDataSource(dioClient: Get.find()),
+        UpcomingRemoteDataSource(dioClient: Get.find()),
         specificLaunchRemoteDataSource: SpecificLaunchRemoteDataSource()));
     Get.lazyPut<GetUpcomingLaunchesUseCase>(
         () => GetUpcomingLaunchesUseCase(repository: Get.find()));
