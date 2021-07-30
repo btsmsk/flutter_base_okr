@@ -14,13 +14,13 @@ part 'rocket_vehicle.g.dart';
 
 @JsonSerializable()
 class RocketVehicle extends Vehicle {
-
-	factory RocketVehicle.fromJson(Map<String, dynamic> json) => _$RocketVehicleFromJson(json);
+  factory RocketVehicle.fromJson(Map<String, dynamic> json) =>
+      _$RocketVehicleFromJson(json);
 
   static List<RocketVehicle> getRocketModelList(body) =>
       body.map((i) => RocketVehicle.fromJson(i)).toList().cast<RocketVehicle>();
 
-	Map<String, dynamic> toJson() => _$RocketVehicleToJson(this);
+  Map<String, dynamic> toJson() => _$RocketVehicleToJson(this);
 
   Diameter? height;
   Diameter? diameter;
@@ -53,41 +53,42 @@ class RocketVehicle extends Vehicle {
   String? description;
   String? id;
 
-  RocketVehicle({
-      this.height, 
-      this.diameter, 
-      this.mass, 
-      this.firstStage, 
-      this.secondStage, 
-      this.engines, 
-      this.landingLegs, 
-      this.payloadWeights, 
-      this.flickrImages, 
-      this.name, 
-      this.type, 
-      this.active, 
-      this.stages, 
-      this.boosters, 
-      this.costPerLaunch, 
-      this.successRatePct, 
+  RocketVehicle(
+      {this.height,
+      this.diameter,
+      this.mass,
+      this.firstStage,
+      this.secondStage,
+      this.engines,
+      this.landingLegs,
+      this.payloadWeights,
+      this.flickrImages,
+      this.name,
+      this.type,
+      this.active,
+      this.stages,
+      this.boosters,
+      this.costPerLaunch,
+      this.successRatePct,
       this.firstFlight,
-      this.country, 
-      this.company, 
-      this.wikipedia, 
-      this.description, 
-      this.id}): super(
-    id: id,
-    name: name,
-    type: type,
-    description: description,
-    url: wikipedia,
-    height: height,
-    diameter: diameter,
-    mass: mass,
-    active: active,
-    dateTime: firstFlight != null ? DateTime.tryParse(firstFlight) : null,
-    photos: flickrImages
-  );
+      this.country,
+      this.company,
+      this.wikipedia,
+      this.description,
+      this.id})
+      : super(
+            id: id,
+            name: name,
+            type: type,
+            description: description,
+            url: wikipedia,
+            height: height,
+            diameter: diameter,
+            mass: mass,
+            active: active,
+            dateTime:
+                firstFlight != null ? DateTime.tryParse(firstFlight) : null,
+            photos: flickrImages);
 
   String getFormattedCost() => formatCurrency.format(costPerLaunch);
 
@@ -95,15 +96,25 @@ class RocketVehicle extends Vehicle {
 
   String getStagesInfo() => '${stages.toString()} stages';
 
-  String getRocketHeight() => '${formatDecimal.format(height?.meters)} m';
+  String getRocketHeight() =>
+      height?.meters != null ? '${formatDecimal.format(height?.meters)} m' : '';
 
-  String getRocketDiameter() => '${formatDecimal.format(diameter?.meters)} m';
+  String getRocketDiameter() => diameter?.meters != null
+      ? '${formatDecimal.format(diameter?.meters)} m'
+      : '';
 
-  String getRocketMass() => '${formatDecimal.format(mass?.kg)} kg';
+  String getRocketMass() =>
+      mass?.kg != null ? '${formatDecimal.format(mass?.kg)} kg' : '';
 
-  String getFairingHeight() => '${formatDecimal.format(secondStage?.payloads?.compositeFairing?.height?.meters)} m';
+  String getFairingHeight() => secondStage
+              ?.payloads?.compositeFairing?.height?.meters != null
+      ? '${formatDecimal.format(secondStage?.payloads?.compositeFairing?.height?.meters)} m'
+      : '';
 
-  String getFairingDiameter() => '${formatDecimal.format(secondStage?.payloads?.compositeFairing?.diameter?.meters)} m';
+  String getFairingDiameter() => secondStage
+              ?.payloads?.compositeFairing?.diameter?.meters != null
+      ? '${formatDecimal.format(secondStage?.payloads?.compositeFairing?.diameter?.meters)} m'
+      : '';
 
   String getEngineThrustToWeight() => engines?.thrustToWeight != null
       ? formatDecimal.format(engines?.thrustToWeight)

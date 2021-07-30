@@ -105,10 +105,10 @@ class DragonVehicle extends Vehicle {
 
   String getReturnPayload() => returnPayloadMass != null ? '${formatDecimal.format(returnPayloadMass?.kg)} kg' : '';
 
-  String getDragonHeight() => '${formatDecimal.format(height?.meters)} m';
+  String getDragonHeight() => height?.meters != null ? '${formatDecimal.format(height?.meters)} m' : '';
 
-  String getDragonDiameter() => '${formatDecimal.format(diameter?.meters)} m';
+  String getDragonDiameter() => diameter?.meters != null ? '${formatDecimal.format(diameter?.meters)} m' : '';
 
-  String getDragonDryWeight() => '${formatDecimal.format(dryMassKg)} kg';
+  String getDragonDryWeight() => dryMassKg != null ? '${formatDecimal.format(dryMassKg)} kg' : '';
 
 }
