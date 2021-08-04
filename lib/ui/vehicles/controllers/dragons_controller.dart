@@ -1,3 +1,4 @@
+import 'package:flutter_base_okr/domain/usecase/GetUseCase.dart';
 import 'package:flutter_base_okr/domain/usecase/vehicles/get_dragons.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class DragonsController extends GetxController with StateMixin {
     change([], status: RxStatus.loading());
 
     try {
-      final result = await dragonsUseCase.run();
+      final result = await dragonsUseCase.execute(None());
 
       change(result, status: RxStatus.success());
     } catch (e) {

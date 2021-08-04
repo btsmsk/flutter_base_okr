@@ -1,7 +1,12 @@
+import 'package:flutter_base_okr/ui/auth/bindings/auth_binding.dart';
+import 'package:flutter_base_okr/ui/auth/views/login.dart';
+import 'package:flutter_base_okr/ui/auth/views/register.dart';
 import 'package:flutter_base_okr/ui/dashboard/bindings/dashboard_binding.dart';
 import 'package:flutter_base_okr/ui/dashboard/views/dashboard.dart';
 import 'package:flutter_base_okr/ui/launches/views/upcoming/bindings/upcoming_details_binding.dart';
 import 'package:flutter_base_okr/ui/launches/views/upcoming/views/upcoming_details.dart';
+import 'package:flutter_base_okr/ui/root/bindings/root_binding.dart';
+import 'package:flutter_base_okr/ui/root/views/root.dart';
 import 'package:flutter_base_okr/ui/vehicle_detail/bindings/vehicles_detail_binding.dart';
 import 'package:flutter_base_okr/ui/vehicle_detail/views/vehicle_detail.dart';
 import 'package:get/get.dart';
@@ -12,7 +17,13 @@ import 'app_routes.dart';
 class AppPages {
   static final routes = [
     GetPage(
-        name: Routes.APP, page: () => Dashboard(), binding: DashboardBinding()),
+        name: Routes.ROOT,
+        page: () => Root(),
+        binding: RootBinding()),
+    GetPage(
+        name: Routes.DASHBOARD,
+        page: () => Dashboard(),
+        binding: DashboardBinding()),
     GetPage(
         name: Routes.VEHICLE_DETAIL,
         page: () => VehicleDetail(),
@@ -20,6 +31,14 @@ class AppPages {
     GetPage(
         name: Routes.UPCOMING_DETAIL,
         page: () => UpcomingDetails(),
-        binding: UpcomingDetailsBinding())
+        binding: UpcomingDetailsBinding()),
+    GetPage(
+        name: Routes.LOGIN,
+        page: () => LoginPage(),
+        binding: AuthBinding()),
+    GetPage(
+        name: Routes.REGISTER,
+        page: () => RegisterPage(),
+        binding: AuthBinding())
   ];
 }
