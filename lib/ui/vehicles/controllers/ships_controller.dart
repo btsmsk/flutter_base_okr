@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 
 class ShipsController extends GetxController with StateMixin {
   final GetShipsUseCase shipsUseCase;
-
   ShipsController({required this.shipsUseCase});
+
+  Rx<String> searchQuery = ''.obs;
 
   @override
   void onReady() {

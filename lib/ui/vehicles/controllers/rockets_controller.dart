@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 
 class RocketsController extends GetxController with StateMixin {
   final GetRocketsUseCase rocketsUseCase;
-
   RocketsController({required this.rocketsUseCase});
+
+  Rx<String> searchQuery = ''.obs;
 
   @override
   void onReady() {

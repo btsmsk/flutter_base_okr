@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 
 class DragonsController extends GetxController with StateMixin {
   final GetDragonsUseCase dragonsUseCase;
-
   DragonsController({required this.dragonsUseCase});
+
+  Rx<String> searchQuery = ''.obs;
 
   @override
   void onReady() {
