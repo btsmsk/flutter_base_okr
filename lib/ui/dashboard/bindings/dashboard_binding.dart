@@ -2,6 +2,7 @@ import 'package:flutter_base_okr/ui/company/bindings/company_binding.dart';
 import 'package:flutter_base_okr/ui/dashboard/controllers/dashboard_controller.dart';
 import 'package:flutter_base_okr/ui/home/bindings/home_binding.dart';
 import 'package:flutter_base_okr/ui/launches/bindings/launches_binding.dart';
+import 'package:flutter_base_okr/ui/platform_channel/bindings/platform_channel_binding.dart';
 import 'package:flutter_base_okr/ui/vehicles/bindings/vehicles_binding.dart';
 import 'package:get/get.dart';
 
@@ -18,5 +19,7 @@ class DashboardBinding implements Bindings {
     LaunchesBinding().dependencies();
     // Company
     CompanyBinding().dependencies();
+    // test
+    PlatformChannelBinding().dependencies();
   }
 }

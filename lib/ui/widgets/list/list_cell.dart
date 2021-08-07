@@ -48,11 +48,13 @@ class ListCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListTile(
+        minLeadingWidth: Dimens.NONE,
         leading: Padding(
-          padding:
-              const EdgeInsets.only(top: Dimens.SIZE_4, bottom: Dimens.SIZE_4),
-          child: leading
-        ),
+            padding: leading != null
+                ? const EdgeInsets.only(
+                    top: Dimens.SIZE_4, bottom: Dimens.SIZE_4)
+                : const EdgeInsets.only(),
+            child: leading),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -93,7 +95,7 @@ class ListCell extends StatelessWidget {
         trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (onTap != null && trailing == null)
+            if (onTap != null && trailing != null)
               const Icon(Icons.chevron_right)
             else
               trailing ?? const SizedBox.shrink(),

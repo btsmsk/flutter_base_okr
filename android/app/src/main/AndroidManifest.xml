@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.flutterbase.flutter_base_okr">
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
    <application
         android:label="flutter_base_okr"
         android:icon="@mipmap/ic_launcher">
