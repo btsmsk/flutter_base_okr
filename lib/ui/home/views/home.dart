@@ -9,7 +9,6 @@ class HomeScreen extends GetView<HomeController> {
         body: Center(
           child: Container(
             alignment: Alignment.center,
-            color: Colors.white,
             child: SvgPicture.asset(
               'assets/icons/barrier_vector.svg',
               height: 150,
