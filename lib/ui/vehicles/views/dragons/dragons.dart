@@ -11,44 +11,49 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class Dragons extends GetView<DragonsController> {
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: Stack(
-          children: [_buildMainContent()],
-        ),
-        floatingActionButton: controller.obx(
-          (state) => FloatingActionButton(
-            heroTag: null,
-            tooltip: 'Search',
-            onPressed: () => showSearch(
-              context: context,
-              delegate: SearchPage<DragonVehicle>(
-                items: state,
-                searchLabel: 'Search Dragon',
-                filter: (vehicle) => [
-                  vehicle.name,
-                  vehicle.type,
-                ],
-                builder: (vehicle) => VehicleItem(vehicle: vehicle),
-                suggestion: InfoView(
-                  title: Text('Dragon',
-                      style: Theme.of(context).textTheme.headline6),
-                  subtitle: Text('Search',
-                      style: Theme.of(context).textTheme.subtitle1),
-                  header: const Icon(Icons.search),
+  Widget build(BuildContext context) => RefreshIndicator(
+        onRefresh: () async {
+          controller.getDragons();
+        },
+        child: Scaffold(
+          body: Stack(
+            children: [_buildMainContent()],
+          ),
+          floatingActionButton: controller.obx(
+            (state) => FloatingActionButton(
+              heroTag: null,
+              tooltip: 'Search',
+              onPressed: () => showSearch(
+                context: context,
+                delegate: SearchPage<DragonVehicle>(
+                  items: state,
+                  searchLabel: 'Search Dragon',
+                  filter: (vehicle) => [
+                    vehicle.name,
+                    vehicle.type,
+                  ],
+                  builder: (vehicle) => VehicleItem(vehicle: vehicle),
+                  suggestion: InfoView(
+                    title: Text('Dragon',
+                        style: Theme.of(context).textTheme.headline6),
+                    subtitle: Text('Search',
+                        style: Theme.of(context).textTheme.subtitle1),
+                    header: const Icon(Icons.search),
+                  ),
+                  failure: InfoView(
+                    title: Obx(() => Text('"${controller.searchQuery.value}"',
+                        style: Theme.of(context).textTheme.headline6)),
+                    subtitle: Text('Not found',
+                        style: Theme.of(context).textTheme.subtitle1),
+                    header: const Icon(Icons.sentiment_dissatisfied),
+                  ),
+                  onQueryUpdate: (query) {
+                    controller.searchQuery.value = query;
+                  },
                 ),
-                failure: InfoView(
-                  title: Obx(() => Text('"${controller.searchQuery.value}"',
-                      style: Theme.of(context).textTheme.headline6)),
-                  subtitle: Text('Not found',
-                      style: Theme.of(context).textTheme.subtitle1),
-                  header: const Icon(Icons.sentiment_dissatisfied),
-                ),
-                onQueryUpdate: (query) {
-                  controller.searchQuery.value = query;
-                },
               ),
+              child: const Icon(Icons.search),
             ),
-            child: const Icon(Icons.search),
           ),
         ),
       );
@@ -60,9 +65,7 @@ class Dragons extends GetView<DragonsController> {
             child: Text(error.toString()),
           ),
           onLoading: const Center(
-            child: CircularProgressIndicator(
-              color: Colors.black45,
-            ),
+            child: CircularProgressIndicator(),
           ),
         ),
       );

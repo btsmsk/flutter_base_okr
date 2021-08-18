@@ -93,9 +93,7 @@ class Company extends GetView<CompanyController> {
           child: Text(error.toString()),
         ),
         onLoading: const Center(
-          child: CircularProgressIndicator(
-            color: Colors.black45,
-          ),
+          child: CircularProgressIndicator(),
         ),
       ));
 

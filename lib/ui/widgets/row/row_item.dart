@@ -12,7 +12,8 @@ class RowItem extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Row(
+  Widget build(BuildContext context) =>
+      Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Expanded(
@@ -30,17 +31,16 @@ class RowItem extends StatelessWidget {
         ],
       );
 
-  factory RowItem.text(
-    String title,
-    String? description, {
-    Key? key,
-    TextStyle? titleStyle,
-    TextStyle? descriptionStyle,
-    TextOverflow? textOverflow,
-    int? maxLines,
-    IconProperties? startIcon,
-    IconProperties? endIcon,
-  }) =>
+  factory RowItem.text(String title,
+      String? description, {
+        Key? key,
+        TextStyle? titleStyle,
+        TextStyle? descriptionStyle,
+        TextOverflow? textOverflow,
+        int? maxLines,
+        IconProperties? startIcon,
+        IconProperties? endIcon,
+      }) =>
       RowItem(
         key: key,
         title: Row(
@@ -79,16 +79,15 @@ class RowItem extends StatelessWidget {
         ),
       );
 
-  factory RowItem.tap(
-    String title,
-    String description, {
-    Key? key,
-    TextStyle? titleStyle,
-    TextStyle? descriptionStyle,
-    TextOverflow? textOverflow,
-    int? maxLines,
-    VoidCallback? onTap,
-  }) =>
+  factory RowItem.tap(String title,
+      String description, {
+        Key? key,
+        TextStyle? titleStyle,
+        TextStyle? descriptionStyle,
+        TextOverflow? textOverflow,
+        int? maxLines,
+        VoidCallback? onTap,
+      }) =>
       RowItem(
         key: key,
         title: _Text(
@@ -122,8 +121,7 @@ class _Text extends StatelessWidget {
   final int? maxLines;
   final bool useDefaultDescriptionColor;
 
-  const _Text(
-    this.data, {
+  const _Text(this.data, {
     Key? key,
     this.style,
     this.clickable = false,
@@ -134,21 +132,16 @@ class _Text extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => DefaultTextStyle(
-        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-              color: useDefaultDescriptionColor
-                  ? Theme.of(context).textTheme.caption!.color
-                  : null,
-              decoration:
-                  clickable ? TextDecoration.underline : TextDecoration.none,
-            ),
-        child: Text(
-          data,
-          overflow: textOverflow ?? TextOverflow.ellipsis,
-          maxLines: maxLines,
-          textAlign: textAlign,
-          style: style,
-        ),
+  Widget build(BuildContext context) =>
+      Text(
+        data,
+        overflow: textOverflow ?? TextOverflow.ellipsis,
+        maxLines: maxLines,
+        textAlign: textAlign,
+        style: Theme
+            .of(context)
+            .textTheme
+            .subtitle1!,
       );
 }
 
@@ -158,7 +151,8 @@ class _Icon extends StatelessWidget {
   const _Icon({Key? key, this.properties}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Icon(
+  Widget build(BuildContext context) =>
+      Icon(
         properties?.icon,
         color: properties?.color,
         size: properties?.iconSize,
@@ -171,10 +165,9 @@ class IconProperties {
   final double? iconSize;
   final EdgeInsets padding;
 
-  const IconProperties(
-      {required this.icon,
-      required this.color,
-      this.iconSize = Dimens.SIZE_16,
-      this.padding =
-          const EdgeInsets.only(left: Dimens.SIZE_4, right: Dimens.SIZE_4)});
+  const IconProperties({required this.icon,
+    required this.color,
+    this.iconSize = Dimens.SIZE_16,
+    this.padding =
+    const EdgeInsets.only(left: Dimens.SIZE_4, right: Dimens.SIZE_4)});
 }

@@ -25,9 +25,7 @@ class Upcoming extends GetView<UpcomingController> {
             onError: (error) => ErrorCell(
                 controller.value, () => controller.getUpcomingLaunches()),
             onLoading: const Center(
-              child: CircularProgressIndicator(
-                color: Colors.black45,
-              ),
+              child: CircularProgressIndicator(),
             )),
       );
 }

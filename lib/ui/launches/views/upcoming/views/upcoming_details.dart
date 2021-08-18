@@ -64,9 +64,7 @@ class UpcomingDetails extends GetView<UpcomingDetailsController> {
             child: Text(error.toString()),
           ),
           onLoading: const Center(
-            child: CircularProgressIndicator(
-              color: Colors.black45,
-            ),
+            child: CircularProgressIndicator(),
           ),
         ),
       );
@@ -89,16 +87,11 @@ class UpcomingDetails extends GetView<UpcomingDetailsController> {
               const SizedBox(
                 height: Dimens.SIZE_14,
                 width: Dimens.SIZE_14,
-                child: Icon(Icons.calendar_today,
-                    color: Colors.black38, size: Dimens.SIZE_14),
+                child: Icon(Icons.calendar_today, size: Dimens.SIZE_14),
               ),
               const SizedBox(width: Dimens.SIZE_8),
               Text(
                 launch.getLaunchDate(context),
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle2!
-                    .apply(color: Colors.black38),
               )
             ],
           ),
@@ -107,17 +100,10 @@ class UpcomingDetails extends GetView<UpcomingDetailsController> {
               const SizedBox(
                 height: Dimens.SIZE_14,
                 width: Dimens.SIZE_14,
-                child: Icon(Icons.info_outlined,
-                    color: Colors.black38, size: Dimens.SIZE_14),
+                child: Icon(Icons.info_outlined, size: Dimens.SIZE_14),
               ),
               const SizedBox(width: Dimens.SIZE_8),
-              Text(
-                "#${launch.flightNumber}",
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle2!
-                    .apply(color: Colors.black38),
-              )
+              Text("#${launch.flightNumber}"),
             ],
           ),
         ],

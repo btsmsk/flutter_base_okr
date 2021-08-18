@@ -19,7 +19,7 @@ class CardCell extends StatelessWidget {
     this.clipBehavior = Clip.antiAlias,
     this.radius = Dimens.DEFAULT_CARD_RADIUS,
     this.borderWidth = Dimens.SIZE_2,
-    this.color = Colors.white,
+    this.color,
     this.shadowColor,
     Key? key,
   }) : super(key: key);
