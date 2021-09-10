@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dimens.dart';
+
 class Themes {
   static final darkTheme = ThemeData.dark().copyWith(
     backgroundColor: Colors.black54,
@@ -10,7 +12,7 @@ class Themes {
         indicatorSize: TabBarIndicatorSize.label,
         indicator: UnderlineTabIndicator(
           borderSide:
-          BorderSide(width: Dimens.SIZE_2, color: Color(0xff34497e)),
+              BorderSide(width: Dimens.SIZE_2, color: Color(0xff34497e)),
         ),
         labelColor: Colors.white70,
         unselectedLabelColor: Colors.white30),
@@ -30,7 +32,7 @@ class Themes {
         indicatorSize: TabBarIndicatorSize.label,
         indicator: UnderlineTabIndicator(
           borderSide:
-          BorderSide(width: Dimens.SIZE_2, color: Colors.blueAccent),
+              BorderSide(width: Dimens.SIZE_2, color: Colors.blueAccent),
         ),
         labelColor: Colors.black87,
         unselectedLabelColor: Colors.black38),
