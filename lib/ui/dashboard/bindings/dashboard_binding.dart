@@ -9,7 +9,8 @@ class DashboardBinding implements Bindings {
   @override
   void dependencies() {
     // Dashboard
-    Get.lazyPut<DashboardController>(() => DashboardController());
+    Get.lazyPut<DashboardController>(
+        () => DashboardController(localCacheRepository: Get.find()));
     // Home
     HomeBinding().dependencies();
     // Vehicles

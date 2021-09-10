@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_okr/data/data_source/local/theme_service.dart';
 import 'package:flutter_base_okr/ui/company/views/company.dart';
 import 'package:flutter_base_okr/ui/home/views/home.dart';
 import 'package:flutter_base_okr/ui/launches/views/launches.dart';
@@ -16,20 +15,18 @@ class Dashboard extends GetView {
   @override
   Widget build(BuildContext context) => GetBuilder<DashboardController>(
         builder: (controller) => Scaffold(
-          appBar:
-              AppBar(
-                  title: const Text('Flutter OKR'),
-                  elevation: Dimens.NONE,
-              actions: [
-                IconButton(
-                  icon: Icon(Get.isDarkMode
-                      ? Icons.light_mode
-                      : Icons.dark_mode),
-                  onPressed: () {
-                    ThemeService().switchTheme();
-                  },
-                )
-              ],),
+          appBar: AppBar(
+            title: const Text('Flutter OKR'),
+            elevation: Dimens.NONE,
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.light_mode),
+                onPressed: () {
+                  controller.changeTheme();
+                },
+              )
+            ],
+          ),
           body: tabs[controller.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             elevation: Dimens.ELEVATION,
